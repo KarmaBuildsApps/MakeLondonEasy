@@ -1,0 +1,432 @@
+{
+  "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationResult, Tfl.Api.Presentation.Entities",
+  "toLocationDisambiguation": {
+    "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.Disambiguation, Tfl.Api.Presentation.Entities",
+    "disambiguationOptions": [
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "51.46683350392,-0.32767857699",
+        "uri": "/journey/journeyresults/victoria/to/51.46683350392,-0.32767857699?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.Place, Tfl.Api.Presentation.Entities",
+          "url": "https://api-prod6.tfl.gov.uk/Place/",
+          "commonName": "Algar Close, Hounslow",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.46683350391999,
+          "lon": -0.32767857698999997
+        },
+        "matchQuality": 950
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "51.61614999468,-0.32641381874",
+        "uri": "/journey/journeyresults/victoria/to/51.61614999468,-0.32641381874?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.Place, Tfl.Api.Presentation.Entities",
+          "url": "https://api-prod6.tfl.gov.uk/Place/",
+          "commonName": "Algar Close, Harrow (London)",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.61614999468,
+          "lon": -0.32641381874000003
+        },
+        "matchQuality": 950
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "51.44386885367,-0.18802836342",
+        "uri": "/journey/journeyresults/victoria/to/51.44386885367,-0.18802836342?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.Place, Tfl.Api.Presentation.Entities",
+          "url": "https://api-prod6.tfl.gov.uk/Place/",
+          "commonName": "Algarve Road, Wandsworth",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.443868853670004,
+          "lon": -0.18802836342
+        },
+        "matchQuality": 948
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "51.46782395218,-0.32713845772",
+        "uri": "/journey/journeyresults/victoria/to/51.46782395218,-0.32713845772?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.Place, Tfl.Api.Presentation.Entities",
+          "url": "https://api-prod6.tfl.gov.uk/Place/",
+          "commonName": "Algar Road, Hounslow",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.46782395218,
+          "lon": -0.32713845772
+        },
+        "matchQuality": 715
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "1003224",
+        "uri": "/journey/journeyresults/victoria/to/1003224?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities",
+          "naptanId": "490G00003224",
+          "modes": [
+            "bus"
+          ],
+          "icsCode": "1003224",
+          "stopType": "stop",
+          "url": "https://api-prod6.tfl.gov.uk/StopPoint/490G00003224",
+          "commonName": "Hampton (London), Algar Court",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.41378291629,
+          "lon": -0.36368215925999997
+        },
+        "matchQuality": 713
+      }
+    ],
+    "matchStatus": "list"
+  },
+  "fromLocationDisambiguation": {
+    "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.Disambiguation, Tfl.Api.Presentation.Entities",
+    "disambiguationOptions": [
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "1000248",
+        "uri": "/journey/journeyresults/1000248/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities",
+          "naptanId": "HUBVIC",
+          "modes": [
+            "national-rail",
+            "tube",
+            "bus",
+            "coach"
+          ],
+          "icsCode": "1000248",
+          "stopType": "stop",
+          "url": "https://api-prod6.tfl.gov.uk/StopPoint/HUBVIC",
+          "commonName": "Victoria (London), Victoria",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.49583799407,
+          "lon": -0.14384365267000002
+        },
+        "matchQuality": 1000
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "1015226",
+        "uri": "/journey/journeyresults/1015226/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities",
+          "naptanId": "490G00015226",
+          "modes": [
+            "bus"
+          ],
+          "icsCode": "1015226",
+          "stopType": "stop",
+          "url": "https://api-prod6.tfl.gov.uk/StopPoint/490G00015226",
+          "commonName": "Charlton (London), Victoria Way",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.483511718340004,
+          "lon": 0.02863353064
+        },
+        "matchQuality": 965
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "51.46109763465,-0.27561886318",
+        "uri": "/journey/journeyresults/51.46109763465,-0.27561886318/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.Place, Tfl.Api.Presentation.Entities",
+          "url": "https://api-prod6.tfl.gov.uk/Place/",
+          "commonName": "East Sheen, The Victoria",
+          "placeType": "PointOfInterest",
+          "additionalProperties": [],
+          "lat": 51.46109763465,
+          "lon": -0.27561886318
+        },
+        "matchQuality": 965
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "51.4835403956,0.02801547503",
+        "uri": "/journey/journeyresults/51.4835403956,0.02801547503/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.Place, Tfl.Api.Presentation.Entities",
+          "url": "https://api-prod6.tfl.gov.uk/Place/",
+          "commonName": "Victoria Way, Greenwich (London)",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.483540395599995,
+          "lon": 0.02801547503
+        },
+        "matchQuality": 965
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "1006025",
+        "uri": "/journey/journeyresults/1006025/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities",
+          "naptanId": "490G00006025",
+          "modes": [
+            "bus"
+          ],
+          "icsCode": "1006025",
+          "stopType": "stop",
+          "url": "https://api-prod6.tfl.gov.uk/StopPoint/490G00006025",
+          "commonName": "Globe Town, Victoria Park",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.53403743418,
+          "lon": -0.04202252904
+        },
+        "matchQuality": 962
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "1014055",
+        "uri": "/journey/journeyresults/1014055/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities",
+          "naptanId": "490G00014055",
+          "modes": [
+            "bus"
+          ],
+          "icsCode": "1014055",
+          "stopType": "stop",
+          "url": "https://api-prod6.tfl.gov.uk/StopPoint/490G00014055",
+          "commonName": "Paddington (London), Victoria Gate",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.512155886079995,
+          "lon": -0.17109584003
+        },
+        "matchQuality": 962
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "1017191",
+        "uri": "/journey/journeyresults/1017191/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities",
+          "naptanId": "2400A008000A",
+          "modes": [
+            "bus",
+            "coach"
+          ],
+          "icsCode": "1017191",
+          "stopType": "stop",
+          "url": "https://api-prod6.tfl.gov.uk/StopPoint/2400A008000A",
+          "commonName": "London, Victoria Hall",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.15648760388,
+          "lon": 0.25984734776
+        },
+        "matchQuality": 962
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "51.58066274515,-0.09218171077",
+        "uri": "/journey/journeyresults/51.58066274515,-0.09218171077/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.Place, Tfl.Api.Presentation.Entities",
+          "url": "https://api-prod6.tfl.gov.uk/Place/",
+          "commonName": "Harringay, Victoria Unit",
+          "placeType": "PointOfInterest",
+          "additionalProperties": [],
+          "lat": 51.58066274515,
+          "lon": -0.09218171077000001
+        },
+        "matchQuality": 962
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "51.5822386848,-0.33134052186",
+        "uri": "/journey/journeyresults/51.5822386848,-0.33134052186/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.Place, Tfl.Api.Presentation.Entities",
+          "url": "https://api-prod6.tfl.gov.uk/Place/",
+          "commonName": "Harrow (London), Victoria Hall",
+          "placeType": "PointOfInterest",
+          "additionalProperties": [],
+          "lat": 51.5822386848,
+          "lon": -0.33134052185999996
+        },
+        "matchQuality": 962
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "51.54778512549,0.15996082614",
+        "uri": "/journey/journeyresults/51.54778512549,0.15996082614/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.Place, Tfl.Api.Presentation.Entities",
+          "url": "https://api-prod6.tfl.gov.uk/Place/",
+          "commonName": "Dagenham, Victoria Road (Dagenham & Redbridge Football Club)",
+          "placeType": "PointOfInterest",
+          "additionalProperties": [],
+          "lat": 51.54778512549,
+          "lon": 0.15996082613999998
+        },
+        "matchQuality": 962
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "51.51342109021,-0.06554835463",
+        "uri": "/journey/journeyresults/51.51342109021,-0.06554835463/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.Place, Tfl.Api.Presentation.Entities",
+          "url": "https://api-prod6.tfl.gov.uk/Place/",
+          "commonName": "Victoria Yard, City of London",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.513421090209995,
+          "lon": -0.06554835463
+        },
+        "matchQuality": 962
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "51.57075630958,-0.11128373814",
+        "uri": "/journey/journeyresults/51.57075630958,-0.11128373814/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.Place, Tfl.Api.Presentation.Entities",
+          "url": "https://api-prod6.tfl.gov.uk/Place/",
+          "commonName": "Victoria Road, Hackney (London)",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.57075630958,
+          "lon": -0.11128373814
+        },
+        "matchQuality": 962
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "51.5839744819,-0.06705681572",
+        "uri": "/journey/journeyresults/51.5839744819,-0.06705681572/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.Place, Tfl.Api.Presentation.Entities",
+          "url": "https://api-prod6.tfl.gov.uk/Place/",
+          "commonName": "Victoria Road, Harringay",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.5839744819,
+          "lon": -0.06705681572
+        },
+        "matchQuality": 962
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "51.59920331346,-0.12893252537",
+        "uri": "/journey/journeyresults/51.59920331346,-0.12893252537/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.Place, Tfl.Api.Presentation.Entities",
+          "url": "https://api-prod6.tfl.gov.uk/Place/",
+          "commonName": "Victoria Road, Harringay",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.59920331346,
+          "lon": -0.12893252537
+        },
+        "matchQuality": 962
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "51.50013736344,-0.18585517178",
+        "uri": "/journey/journeyresults/51.50013736344,-0.18585517178/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.Place, Tfl.Api.Presentation.Entities",
+          "url": "https://api-prod6.tfl.gov.uk/Place/",
+          "commonName": "Victoria Road, Kensington (London)",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.50013736344,
+          "lon": -0.18585517178
+        },
+        "matchQuality": 962
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "51.63071241487,0.0124364272",
+        "uri": "/journey/journeyresults/51.63071241487,0.0124364272/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.Place, Tfl.Api.Presentation.Entities",
+          "url": "https://api-prod6.tfl.gov.uk/Place/",
+          "commonName": "Victoria Road, Walthamstow",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.630712414870004,
+          "lon": 0.0124364272
+        },
+        "matchQuality": 962
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "51.55385345892,0.00399333195",
+        "uri": "/journey/journeyresults/51.55385345892,0.00399333195/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.Place, Tfl.Api.Presentation.Entities",
+          "url": "https://api-prod6.tfl.gov.uk/Place/",
+          "commonName": "Victoria Road, West Ham (London)",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.55385345892,
+          "lon": 0.00399333195
+        },
+        "matchQuality": 962
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "51.53042671684,0.01977544619",
+        "uri": "/journey/journeyresults/51.53042671684,0.01977544619/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.Place, Tfl.Api.Presentation.Entities",
+          "url": "https://api-prod6.tfl.gov.uk/Place/",
+          "commonName": "Victoria Road, West Ham (London)",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.53042671684,
+          "lon": 0.01977544619
+        },
+        "matchQuality": 962
+      },
+      {
+        "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.DisambiguationOption, Tfl.Api.Presentation.Entities",
+        "parameterValue": "51.59444722531,-0.00663702073",
+        "uri": "/journey/journeyresults/51.59444722531,-0.00663702073/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false",
+        "place": {
+          "$type": "Tfl.Api.Presentation.Entities.Place, Tfl.Api.Presentation.Entities",
+          "url": "https://api-prod6.tfl.gov.uk/Place/",
+          "commonName": "Victoria Road, Walthamstow",
+          "placeType": "StopPoint",
+          "additionalProperties": [],
+          "lat": 51.59444722531,
+          "lon": -0.00663702073
+        },
+        "matchQuality": 962
+      }
+    ],
+    "matchStatus": "list"
+  },
+  "viaLocationDisambiguation": {
+    "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.Disambiguation, Tfl.Api.Presentation.Entities",
+    "matchStatus": "empty"
+  },
+  "recommendedMaxAgeMinutes": 1440,
+  "searchCriteria": {
+    "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.SearchCriteria, Tfl.Api.Presentation.Entities",
+    "dateTime": "2016-01-17T14:51:00",
+    "dateTimeType": "Departing"
+  },
+  "journeyVector": {
+    "$type": "Tfl.Api.Presentation.Entities.JourneyPlanner.JourneyVector, Tfl.Api.Presentation.Entities",
+    "from": "victoria",
+    "to": "algae",
+    "via": "",
+    "uri": "/journey/journeyresults/victoria/to/algae?nationalsearch=false&timeis=departing&journeypreference=leasttime&walkingspeed=average&cyclepreference=none&alternativecycle=false&alternativewalking=true&applyhtmlmarkup=false&usemultimodalcall=false"
+  }
+}
