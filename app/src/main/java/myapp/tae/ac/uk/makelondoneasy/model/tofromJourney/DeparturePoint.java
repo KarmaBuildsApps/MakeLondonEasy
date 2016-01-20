@@ -1,8 +1,8 @@
-package myapp.tae.ac.uk.makelondoneasy.api.tofrom;
+package myapp.tae.ac.uk.makelondoneasy.model.tofromJourney;
 
 import java.util.ArrayList;
 import java.util.List;
-//import javax.annotation.Generated;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -12,20 +12,21 @@ import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
-//import org.apache.commons.lang.builder.EqualsBuilder;
-//import org.apache.commons.lang.builder.HashCodeBuilder;
-//import org.apache.commons.lang.builder.ToStringBuilder;
-
-//@Generated("org.jsonschema2pojo")
-public class Place_ implements Parcelable
+public class DeparturePoint implements Parcelable
 {
 
     @SerializedName("$type")
     @Expose
     private String $type;
-    @SerializedName("url")
+    @SerializedName("naptanId")
     @Expose
-    private String url;
+    private String naptanId;
+    @SerializedName("platformName")
+    @Expose
+    private String platformName;
+    @SerializedName("icsCode")
+    @Expose
+    private String icsCode;
     @SerializedName("commonName")
     @Expose
     private String commonName;
@@ -41,13 +42,15 @@ public class Place_ implements Parcelable
     @SerializedName("lon")
     @Expose
     private Double lon;
-    public final static Parcelable.Creator<Place_> CREATOR = new Creator<Place_>() {
+    public final static Parcelable.Creator<DeparturePoint> CREATOR = new Creator<DeparturePoint>() {
 
 
-        public Place_ createFromParcel(Parcel in) {
-            Place_ instance = new Place_();
+        public DeparturePoint createFromParcel(Parcel in) {
+            DeparturePoint instance = new DeparturePoint();
             instance.$type = ((String) in.readValue((String.class.getClassLoader())));
-            instance.url = ((String) in.readValue((String.class.getClassLoader())));
+            instance.naptanId = ((String) in.readValue((String.class.getClassLoader())));
+            instance.platformName = ((String) in.readValue((String.class.getClassLoader())));
+            instance.icsCode = ((String) in.readValue((String.class.getClassLoader())));
             instance.commonName = ((String) in.readValue((String.class.getClassLoader())));
             instance.placeType = ((String) in.readValue((String.class.getClassLoader())));
             in.readList(instance.additionalProperties, (java.lang.Object.class.getClassLoader()));
@@ -56,8 +59,8 @@ public class Place_ implements Parcelable
             return instance;
         }
 
-        public Place_[] newArray(int size) {
-            return (new Place_[size]);
+        public DeparturePoint[] newArray(int size) {
+            return (new DeparturePoint[size]);
         }
 
     }
@@ -84,19 +87,55 @@ public class Place_ implements Parcelable
     /**
      * 
      * @return
-     *     The url
+     *     The naptanId
      */
-    public String getUrl() {
-        return url;
+    public String getNaptanId() {
+        return naptanId;
     }
 
     /**
      * 
-     * @param url
-     *     The url
+     * @param naptanId
+     *     The naptanId
      */
-    public void setUrl(String url) {
-        this.url = url;
+    public void setNaptanId(String naptanId) {
+        this.naptanId = naptanId;
+    }
+
+    /**
+     * 
+     * @return
+     *     The platformName
+     */
+    public String getPlatformName() {
+        return platformName;
+    }
+
+    /**
+     * 
+     * @param platformName
+     *     The platformName
+     */
+    public void setPlatformName(String platformName) {
+        this.platformName = platformName;
+    }
+
+    /**
+     * 
+     * @return
+     *     The icsCode
+     */
+    public String getIcsCode() {
+        return icsCode;
+    }
+
+    /**
+     * 
+     * @param icsCode
+     *     The icsCode
+     */
+    public void setIcsCode(String icsCode) {
+        this.icsCode = icsCode;
     }
 
     /**
@@ -196,7 +235,7 @@ public class Place_ implements Parcelable
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder().append($type).append(url).append(commonName).append(placeType).append(additionalProperties).append(lat).append(lon).toHashCode();
+        return new HashCodeBuilder().append($type).append(naptanId).append(platformName).append(icsCode).append(commonName).append(placeType).append(additionalProperties).append(lat).append(lon).toHashCode();
     }
 
     @Override
@@ -204,16 +243,18 @@ public class Place_ implements Parcelable
         if (other == this) {
             return true;
         }
-        if ((other instanceof Place_) == false) {
+        if ((other instanceof DeparturePoint) == false) {
             return false;
         }
-        Place_ rhs = ((Place_) other);
-        return new EqualsBuilder().append($type, rhs.$type).append(url, rhs.url).append(commonName, rhs.commonName).append(placeType, rhs.placeType).append(additionalProperties, rhs.additionalProperties).append(lat, rhs.lat).append(lon, rhs.lon).isEquals();
+        DeparturePoint rhs = ((DeparturePoint) other);
+        return new EqualsBuilder().append($type, rhs.$type).append(naptanId, rhs.naptanId).append(platformName, rhs.platformName).append(icsCode, rhs.icsCode).append(commonName, rhs.commonName).append(placeType, rhs.placeType).append(additionalProperties, rhs.additionalProperties).append(lat, rhs.lat).append(lon, rhs.lon).isEquals();
     }
 
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue($type);
-        dest.writeValue(url);
+        dest.writeValue(naptanId);
+        dest.writeValue(platformName);
+        dest.writeValue(icsCode);
         dest.writeValue(commonName);
         dest.writeValue(placeType);
         dest.writeList(additionalProperties);

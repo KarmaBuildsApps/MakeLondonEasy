@@ -1,4 +1,4 @@
-package myapp.tae.ac.uk.makelondoneasy.api.tofrom;
+package myapp.tae.ac.uk.makelondoneasy.model.jSearch;
 
 import java.util.ArrayList;
 import java.util.List;

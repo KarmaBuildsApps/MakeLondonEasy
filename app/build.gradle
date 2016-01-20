@@ -33,4 +33,6 @@ dependencies {
     compile 'com.braintreepayments.api:drop-in:2.+'
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile files('libs/commons-lang3-3.4.jar')
+    compile 'com.intuit.sdp:sdp-android:1.0.2'
+
 }

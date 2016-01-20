@@ -1,4 +1,4 @@
-package myapp.tae.ac.uk.makelondoneasy.api.tofrom;
+package myapp.tae.ac.uk.makelondoneasy.model.jSearch;
 
 //import javax.annotation.Generated;
 import android.os.Parcel;

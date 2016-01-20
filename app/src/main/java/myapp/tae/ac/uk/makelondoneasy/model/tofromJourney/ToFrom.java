@@ -1,6 +1,6 @@
-package myapp.tae.ac.uk.makelondoneasy.api.tofrom;
+package myapp.tae.ac.uk.makelondoneasy.model.tofromJourney;
 
-//import javax.annotation.Generated;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -10,26 +10,22 @@ import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
-//import org.apache.commons.lang.builder.EqualsBuilder;
-//import org.apache.commons.lang.builder.HashCodeBuilder;
-//import org.apache.commons.lang.builder.ToStringBuilder;
 
-//@Generated("org.jsonschema2pojo")
+import java.util.ArrayList;
+import java.util.List;
+
 public class ToFrom implements Parcelable
 {
 
     @SerializedName("$type")
     @Expose
     private String $type;
-    @SerializedName("toLocationDisambiguation")
+    @SerializedName("journeys")
     @Expose
-    private ToLocationDisambiguation toLocationDisambiguation;
-    @SerializedName("fromLocationDisambiguation")
+    private List<Journey> journeys = new ArrayList<Journey>();
+    @SerializedName("lines")
     @Expose
-    private FromLocationDisambiguation fromLocationDisambiguation;
-    @SerializedName("viaLocationDisambiguation")
-    @Expose
-    private ViaLocationDisambiguation viaLocationDisambiguation;
+    private List<Line> lines = new ArrayList<Line>();
     @SerializedName("recommendedMaxAgeMinutes")
     @Expose
     private Integer recommendedMaxAgeMinutes;
@@ -45,9 +41,8 @@ public class ToFrom implements Parcelable
         public ToFrom createFromParcel(Parcel in) {
             ToFrom instance = new ToFrom();
             instance.$type = ((String) in.readValue((String.class.getClassLoader())));
-            instance.toLocationDisambiguation = ((ToLocationDisambiguation) in.readValue((ToLocationDisambiguation.class.getClassLoader())));
-            instance.fromLocationDisambiguation = ((FromLocationDisambiguation) in.readValue((FromLocationDisambiguation.class.getClassLoader())));
-            instance.viaLocationDisambiguation = ((ViaLocationDisambiguation) in.readValue((ViaLocationDisambiguation.class.getClassLoader())));
+            in.readList(instance.journeys, (Journey.class.getClassLoader()));
+            in.readList(instance.lines, (Line.class.getClassLoader()));
             instance.recommendedMaxAgeMinutes = ((Integer) in.readValue((Integer.class.getClassLoader())));
             instance.searchCriteria = ((SearchCriteria) in.readValue((SearchCriteria.class.getClassLoader())));
             instance.journeyVector = ((JourneyVector) in.readValue((JourneyVector.class.getClassLoader())));
@@ -82,55 +77,37 @@ public class ToFrom implements Parcelable
     /**
      * 
      * @return
-     *     The toLocationDisambiguation
+     *     The journeys
      */
-    public ToLocationDisambiguation getToLocationDisambiguation() {
-        return toLocationDisambiguation;
+    public List<Journey> getJourneys() {
+        return journeys;
     }
 
     /**
      * 
-     * @param toLocationDisambiguation
-     *     The toLocationDisambiguation
+     * @param journeys
+     *     The journeys
      */
-    public void setToLocationDisambiguation(ToLocationDisambiguation toLocationDisambiguation) {
-        this.toLocationDisambiguation = toLocationDisambiguation;
-    }
-
-    /**
-     * 
-     * @return
-     *     The fromLocationDisambiguation
-     */
-    public FromLocationDisambiguation getFromLocationDisambiguation() {
-        return fromLocationDisambiguation;
-    }
-
-    /**
-     * 
-     * @param fromLocationDisambiguation
-     *     The fromLocationDisambiguation
-     */
-    public void setFromLocationDisambiguation(FromLocationDisambiguation fromLocationDisambiguation) {
-        this.fromLocationDisambiguation = fromLocationDisambiguation;
+    public void setJourneys(List<Journey> journeys) {
+        this.journeys = journeys;
     }
 
     /**
      * 
      * @return
-     *     The viaLocationDisambiguation
+     *     The lines
      */
-    public ViaLocationDisambiguation getViaLocationDisambiguation() {
-        return viaLocationDisambiguation;
+    public List<Line> getLines() {
+        return lines;
     }
 
     /**
      * 
-     * @param viaLocationDisambiguation
-     *     The viaLocationDisambiguation
+     * @param lines
+     *     The lines
      */
-    public void setViaLocationDisambiguation(ViaLocationDisambiguation viaLocationDisambiguation) {
-        this.viaLocationDisambiguation = viaLocationDisambiguation;
+    public void setLines(List<Line> lines) {
+        this.lines = lines;
     }
 
     /**
@@ -194,7 +171,7 @@ public class ToFrom implements Parcelable
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder().append($type).append(toLocationDisambiguation).append(fromLocationDisambiguation).append(viaLocationDisambiguation).append(recommendedMaxAgeMinutes).append(searchCriteria).append(journeyVector).toHashCode();
+        return new HashCodeBuilder().append($type).append(journeys).append(lines).append(recommendedMaxAgeMinutes).append(searchCriteria).append(journeyVector).toHashCode();
     }
 
     @Override
@@ -206,14 +183,13 @@ public class ToFrom implements Parcelable
             return false;
         }
         ToFrom rhs = ((ToFrom) other);
-        return new EqualsBuilder().append($type, rhs.$type).append(toLocationDisambiguation, rhs.toLocationDisambiguation).append(fromLocationDisambiguation, rhs.fromLocationDisambiguation).append(viaLocationDisambiguation, rhs.viaLocationDisambiguation).append(recommendedMaxAgeMinutes, rhs.recommendedMaxAgeMinutes).append(searchCriteria, rhs.searchCriteria).append(journeyVector, rhs.journeyVector).isEquals();
+        return new EqualsBuilder().append($type, rhs.$type).append(journeys, rhs.journeys).append(lines, rhs.lines).append(recommendedMaxAgeMinutes, rhs.recommendedMaxAgeMinutes).append(searchCriteria, rhs.searchCriteria).append(journeyVector, rhs.journeyVector).isEquals();
     }
 
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue($type);
-        dest.writeValue(toLocationDisambiguation);
-        dest.writeValue(fromLocationDisambiguation);
-        dest.writeValue(viaLocationDisambiguation);
+        dest.writeList(journeys);
+        dest.writeList(lines);
         dest.writeValue(recommendedMaxAgeMinutes);
         dest.writeValue(searchCriteria);
         dest.writeValue(journeyVector);
