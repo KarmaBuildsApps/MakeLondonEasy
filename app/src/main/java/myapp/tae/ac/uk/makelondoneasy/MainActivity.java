@@ -9,14 +9,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 
+import myapp.tae.ac.uk.makelondoneasy.adapters.RestroInterface;
+import myapp.tae.ac.uk.makelondoneasy.api.TFLInterface;
+import myapp.tae.ac.uk.makelondoneasy.model.tofromJourney.ToFrom;
 import myapp.tae.ac.uk.makelondoneasy.ui.Fragment1;
 import myapp.tae.ac.uk.makelondoneasy.ui.NavigationMenuFragment;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private DrawerLayout navDrawerLayout;
     private Toolbar toolbar;
     private ActionBarDrawerToggle navToggleBar;
     NavigationMenuFragment nvMenuFragment;
+    private TFLInterface tflInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +36,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         nvMenuFragment = (NavigationMenuFragment) getSupportFragmentManager().findFragmentById(R.id.nvMenuFragment);
         nvMenuFragment.sendDrawerLayout(navDrawerLayout);
         startBodyFragment();
+        tflInterface = RestroInterface.getTFLInterface();
+        tflInterface.getJourney(new Callback<ToFrom>(),  {
+            @Override
+            public void success(ToFrom toFrom, Response response) {
+
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
+            }
+        });
     }
 
     private void startBodyFragment() {

@@ -8,15 +8,24 @@ import retrofit.RestAdapter;
  * Created by Karma on 20/01/16.
  */
 public class RestroInterface {
-    private RestAdapter restAdapter;
+    private static TFLInterface tflInterface;
 
-    private RestroInterface() {
-        this.restAdapter = new RestAdapter.Builder().setEndpoint(Constants.BASE_URL)
-                .setLogLevel(RestAdapter.LogLevel.FULL).build();
+    static {
+        setUpRestAPI();
     }
 
-//    public static TFLInterface getTFLInterface(){
-//        restAdapter.create(TFLInterface.class);
-//    }
+    private RestroInterface() {
+    }
+
+    public static TFLInterface getTFLInterface() {
+        return tflInterface;
+    }
+
+    private static void setUpRestAPI() {
+        RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint(Constants.BASE_URL)
+                .setLogLevel(RestAdapter.LogLevel.FULL).build();
+        tflInterface = restAdapter.create(TFLInterface.class);
+    }
+
 
 }
