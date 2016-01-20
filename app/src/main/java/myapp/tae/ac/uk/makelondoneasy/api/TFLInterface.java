@@ -27,7 +27,7 @@ public interface TFLInterface {
      * @param options
      */
     @GET(Constants.JOURNEY_TO_FROM_QUERY)
-    public void getJourney(Callback<ToFrom> toFrom, @Path("to_from_query") String myQuery, @QueryMap Map<String, String> options);
+    public void getJourney(@Path("to_from_query") String myQuery, @QueryMap Map<String, String> options, Callback<ToFrom> toFrom);
 
     /**
      * The method is for TO and FROM form fields. It will suggests user (auto-suggest) names of place that matched
@@ -39,7 +39,7 @@ public interface TFLInterface {
      * @param userSearch
      */
     @GET(Constants.SEARCH_STOPPOINT_REQUEST_QUERY)
-    public void getSearchSuggestion(Callback<SearchPlace> searchSuggest, @Path("query-terms") String userSearch);
+    public void getSearchSuggestion(@Path("query-terms") String userSearch, Callback<SearchPlace> searchSuggest);
 
     //https://api.tfl.gov.uk/Line/Mode/tube,dlr,overground,tflrail/Status
 
@@ -52,7 +52,7 @@ public interface TFLInterface {
      * @param modesForStatus
      */
     @GET(Constants.JOURNEY_LINE_STATUS_QUERY)
-    public void getLineStatus(Callback<TFLLineStatus> status, @Query("modes") String modesForStatus);
+    public void getLineStatus(@Query("modes") String modesForStatus, Callback<TFLLineStatus> status);
 
 
 }

@@ -9,10 +9,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 
+import com.crashlytics.android.Crashlytics;
+
+import io.fabric.sdk.android.Fabric;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import myapp.tae.ac.uk.makelondoneasy.adapters.RestroInterface;
 import myapp.tae.ac.uk.makelondoneasy.api.TFLInterface;
 import myapp.tae.ac.uk.makelondoneasy.model.tofromJourney.ToFrom;
 import myapp.tae.ac.uk.makelondoneasy.ui.Fragment1;
+import myapp.tae.ac.uk.makelondoneasy.ui.LineStatusFragment;
 import myapp.tae.ac.uk.makelondoneasy.ui.NavigationMenuFragment;
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -23,11 +31,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Toolbar toolbar;
     private ActionBarDrawerToggle navToggleBar;
     NavigationMenuFragment nvMenuFragment;
+    LineStatusFragment lineStatusFragment;
     private TFLInterface tflInterface;
+    Map<String, String> queryOptions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main);
         navDrawerLayout = (DrawerLayout) findViewById(R.id.navDrawerLayout);
         setToolbar();
@@ -36,8 +47,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         nvMenuFragment = (NavigationMenuFragment) getSupportFragmentManager().findFragmentById(R.id.nvMenuFragment);
         nvMenuFragment.sendDrawerLayout(navDrawerLayout);
         startBodyFragment();
+        queryOptions = new HashMap<>();
         tflInterface = RestroInterface.getTFLInterface();
-        tflInterface.getJourney(new Callback<ToFrom>(),  {
+        tflInterface.getJourney("1000248/to/1000068", queryOptions, new Callback<ToFrom>() {
             @Override
             public void success(ToFrom toFrom, Response response) {
 
@@ -51,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void startBodyFragment() {
-        getSupportFragmentManager().beginTransaction().add(R.id.flBodyFragment, new Fragment1()).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.flBodyFragment, new LineStatusFragment()).commit();
     }
 
     private void setToolbar() {

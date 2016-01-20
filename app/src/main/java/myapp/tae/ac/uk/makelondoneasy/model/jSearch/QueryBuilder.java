@@ -11,8 +11,8 @@ public class QueryBuilder {
     private boolean isNationWide = false;
     private String date = "";
     private String time = "";
-    private String timeIs = Constants.JOURNEY_TIMEIS_DEFAULT;
-    private String journeyPreference = Constants.JOURNEY_PREFERENCE_DEFAULT;
+//    private String timeIs = Constants.JOURNEY_TIMEIS_DEFAULT;
+//    private String journeyPreference = Constants.JOURNEY_PREFERENCE_DEFAULT;
 
     public QueryBuilder(String to, String from) {
 
