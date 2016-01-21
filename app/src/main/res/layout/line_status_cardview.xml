@@ -12,16 +12,18 @@
         <LinearLayout
             android:id="@+id/llCardViewList"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/_70sdp"
             android:orientation="horizontal"
             android:padding="@dimen/_5sdp"
             android:weightSum="100">
 
             <TextView
+                android:id="@+id/tvLineNameColor"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="30"
-                android:background="@color/bt_red" />
+                android:background="@color/colorDlr"
+                android:gravity="center"/>
 
             <TextView
                 android:id="@+id/tvLineStatus"
@@ -43,7 +45,8 @@
             <TextView
                 android:id="@+id/tvStatusDetail"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:gravity="center" />
         </LinearLayout>
     </RelativeLayout>
 

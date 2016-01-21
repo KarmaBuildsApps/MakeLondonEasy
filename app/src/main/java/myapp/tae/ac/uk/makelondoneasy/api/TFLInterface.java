@@ -1,5 +1,6 @@
 package myapp.tae.ac.uk.makelondoneasy.api;
 
+import java.util.List;
 import java.util.Map;
 
 import myapp.tae.ac.uk.makelondoneasy.constants.Constants;
@@ -9,7 +10,6 @@ import myapp.tae.ac.uk.makelondoneasy.model.tofromJourney.ToFrom;
 import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.Path;
-import retrofit.http.Query;
 import retrofit.http.QueryMap;
 
 /**
@@ -52,7 +52,9 @@ public interface TFLInterface {
      * @param modesForStatus
      */
     @GET(Constants.JOURNEY_LINE_STATUS_QUERY)
-    public void getLineStatus(@Query("modes") String modesForStatus, Callback<TFLLineStatus> status);
+    public void getLineStatus(@Path("modes") String modesForStatus, Callback<List<TFLLineStatus>> status);
+//    @GET(Constants.JOURNEY_LINE_STATUS_QUERY)
+//    public void getLineStatus(Callback<TFLLineStatus> status);
 
 
 }

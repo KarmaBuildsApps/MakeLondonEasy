@@ -2,6 +2,11 @@
     <string name="app_name">Make London Easy</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    <!--For Search Form-->
+    <string name="formFromHintText">From</string>
+    <string name="formToHintText">To</string>
+    <string name="formFilterSearchText">Filter Search</string>
+    <string name="formSearchButtonText">Search</string>
     <string-array name="drawerMenu">
         <item>Journey Planner</item>
         <item>Line Status</item>

@@ -4,18 +4,11 @@ package myapp.tae.ac.uk.makelondoneasy.model.lineStatus;
 import java.util.ArrayList;
 import java.util.List;
 //import javax.annotation.Generated;
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.os.Parcelable.Creator;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-
-public class LineStatus implements Parcelable {
+//@Generated("org.jsonschema2pojo")
+public class LineStatus {
 
     @SerializedName("$type")
     @Expose
@@ -23,155 +16,188 @@ public class LineStatus implements Parcelable {
     @SerializedName("id")
     @Expose
     private Integer id;
+    @SerializedName("lineId")
+    @Expose
+    private String lineId;
     @SerializedName("statusSeverity")
     @Expose
     private Integer statusSeverity;
     @SerializedName("statusSeverityDescription")
     @Expose
     private String statusSeverityDescription;
+    @SerializedName("reason")
+    @Expose
+    private String reason;
     @SerializedName("created")
     @Expose
     private String created;
     @SerializedName("validityPeriods")
     @Expose
-    private List<Object> validityPeriods = new ArrayList<Object>();
-    public final static Parcelable.Creator<LineStatus> CREATOR = new Creator<LineStatus>() {
-
-
-        public LineStatus createFromParcel(Parcel in) {
-            LineStatus instance = new LineStatus();
-            instance.$type = ((String) in.readValue((String.class.getClassLoader())));
-            instance.id = ((Integer) in.readValue((Integer.class.getClassLoader())));
-            instance.statusSeverity = ((Integer) in.readValue((Integer.class.getClassLoader())));
-            instance.statusSeverityDescription = ((String) in.readValue((String.class.getClassLoader())));
-            instance.created = ((String) in.readValue((String.class.getClassLoader())));
-            in.readList(instance.validityPeriods, (java.lang.Object.class.getClassLoader()));
-            return instance;
-        }
-
-        public LineStatus[] newArray(int size) {
-            return (new LineStatus[size]);
-        }
-
-    };
+    private List<ValidityPeriod> validityPeriods = new ArrayList<ValidityPeriod>();
+    @SerializedName("disruption")
+    @Expose
+    private Disruption disruption;
 
     /**
-     * @return The $type
+     * 
+     * @return
+     *     The $type
      */
     public String get$type() {
         return $type;
     }
 
     /**
-     * @param $type The $type
+     * 
+     * @param $type
+     *     The $type
      */
     public void set$type(String $type) {
         this.$type = $type;
     }
 
     /**
-     * @return The id
+     * 
+     * @return
+     *     The id
      */
     public Integer getId() {
         return id;
     }
 
     /**
-     * @param id The id
+     * 
+     * @param id
+     *     The id
      */
     public void setId(Integer id) {
         this.id = id;
     }
 
     /**
-     * @return The statusSeverity
+     * 
+     * @return
+     *     The lineId
+     */
+    public String getLineId() {
+        return lineId;
+    }
+
+    /**
+     * 
+     * @param lineId
+     *     The lineId
+     */
+    public void setLineId(String lineId) {
+        this.lineId = lineId;
+    }
+
+    /**
+     * 
+     * @return
+     *     The statusSeverity
      */
     public Integer getStatusSeverity() {
         return statusSeverity;
     }
 
     /**
-     * @param statusSeverity The statusSeverity
+     * 
+     * @param statusSeverity
+     *     The statusSeverity
      */
     public void setStatusSeverity(Integer statusSeverity) {
         this.statusSeverity = statusSeverity;
     }
 
     /**
-     * @return The statusSeverityDescription
+     * 
+     * @return
+     *     The statusSeverityDescription
      */
     public String getStatusSeverityDescription() {
         return statusSeverityDescription;
     }
 
     /**
-     * @param statusSeverityDescription The statusSeverityDescription
+     * 
+     * @param statusSeverityDescription
+     *     The statusSeverityDescription
      */
     public void setStatusSeverityDescription(String statusSeverityDescription) {
         this.statusSeverityDescription = statusSeverityDescription;
     }
 
     /**
-     * @return The created
+     * 
+     * @return
+     *     The reason
+     */
+    public String getReason() {
+        return reason;
+    }
+
+    /**
+     * 
+     * @param reason
+     *     The reason
+     */
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    /**
+     * 
+     * @return
+     *     The created
      */
     public String getCreated() {
         return created;
     }
 
     /**
-     * @param created The created
+     * 
+     * @param created
+     *     The created
      */
     public void setCreated(String created) {
         this.created = created;
     }
 
     /**
-     * @return The validityPeriods
+     * 
+     * @return
+     *     The validityPeriods
      */
-    public List<Object> getValidityPeriods() {
+    public List<ValidityPeriod> getValidityPeriods() {
         return validityPeriods;
     }
 
     /**
-     * @param validityPeriods The validityPeriods
+     * 
+     * @param validityPeriods
+     *     The validityPeriods
      */
-    public void setValidityPeriods(List<Object> validityPeriods) {
+    public void setValidityPeriods(List<ValidityPeriod> validityPeriods) {
         this.validityPeriods = validityPeriods;
     }
 
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this);
+    /**
+     * 
+     * @return
+     *     The disruption
+     */
+    public Disruption getDisruption() {
+        return disruption;
     }
 
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder().append($type).append(id).append(statusSeverity).append(statusSeverityDescription).append(created).append(validityPeriods).toHashCode();
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        if (other == this) {
-            return true;
-        }
-        if ((other instanceof LineStatus) == false) {
-            return false;
-        }
-        LineStatus rhs = ((LineStatus) other);
-        return new EqualsBuilder().append($type, rhs.$type).append(id, rhs.id).append(statusSeverity, rhs.statusSeverity).append(statusSeverityDescription, rhs.statusSeverityDescription).append(created, rhs.created).append(validityPeriods, rhs.validityPeriods).isEquals();
-    }
-
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeValue($type);
-        dest.writeValue(id);
-        dest.writeValue(statusSeverity);
-        dest.writeValue(statusSeverityDescription);
-        dest.writeValue(created);
-        dest.writeList(validityPeriods);
-    }
-
-    public int describeContents() {
-        return 0;
+    /**
+     * 
+     * @param disruption
+     *     The disruption
+     */
+    public void setDisruption(Disruption disruption) {
+        this.disruption = disruption;
     }
 
 }

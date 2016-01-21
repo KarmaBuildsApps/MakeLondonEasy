@@ -3,4 +3,21 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="colorLineStatusTitle">#2D3039</color>
+    <color name="colorBakerloo">#B36305</color>
+    <color name="colorCentral">#E32017</color>
+    <color name="colorCircle">#FFD300</color>
+    <color name="colorDistrict">#00782A</color>
+    <color name="colorDlr">#00A4A7</color>
+    <color name="colorHammersmithCity">#F3A9BB</color>
+    <color name="colorJubilee">#A0A5A9</color>
+    <color name="colorMetropolitan">#9B0056</color>
+    <color name="colorNorthern">#000000</color>
+    <color name="colorLondonOverground">#EE7C0E</color>
+    <color name="colorPiccadilly">#003688</color>
+    <color name="colorTramlink">#84B817</color>
+    <color name="colorVictoria">#0098D4</color>
+    <color name="colorWaterlooCity">#95CDBA</color>
+    <color name="colorTflRail">#7156A5</color>
 </resources>

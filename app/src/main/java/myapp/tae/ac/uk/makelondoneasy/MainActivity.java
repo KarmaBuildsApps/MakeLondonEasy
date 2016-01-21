@@ -18,22 +18,26 @@ import java.util.Map;
 
 import myapp.tae.ac.uk.makelondoneasy.adapters.RestroInterface;
 import myapp.tae.ac.uk.makelondoneasy.api.TFLInterface;
+import myapp.tae.ac.uk.makelondoneasy.model.lineStatus.TFLLineStatus;
+import myapp.tae.ac.uk.makelondoneasy.model.searchP.SearchPlace;
 import myapp.tae.ac.uk.makelondoneasy.model.tofromJourney.ToFrom;
-import myapp.tae.ac.uk.makelondoneasy.ui.Fragment1;
 import myapp.tae.ac.uk.makelondoneasy.ui.LineStatusFragment;
 import myapp.tae.ac.uk.makelondoneasy.ui.NavigationMenuFragment;
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private DrawerLayout navDrawerLayout;
-    private Toolbar toolbar;
-    private ActionBarDrawerToggle navToggleBar;
+    DrawerLayout navDrawerLayout;
+    Toolbar toolbar;
+    ActionBarDrawerToggle navToggleBar;
     NavigationMenuFragment nvMenuFragment;
     LineStatusFragment lineStatusFragment;
-    private TFLInterface tflInterface;
+    TFLInterface tflInterface;
+    TFLLineStatus lineStatus;
+    SearchPlace searchPlace;
+    ToFrom toFromJourney;
+
+
     Map<String, String> queryOptions;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,17 +53,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startBodyFragment();
         queryOptions = new HashMap<>();
         tflInterface = RestroInterface.getTFLInterface();
-        tflInterface.getJourney("1000248/to/1000068", queryOptions, new Callback<ToFrom>() {
-            @Override
-            public void success(ToFrom toFrom, Response response) {
-
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-
-            }
-        });
+//        tflInterface.getJourney("1000248/to/1000068", queryOptions, new Callback<ToFrom>() {
+//            @Override
+//            public void success(ToFrom toFrom, Response response) {
+//                Log.i("MainActivity", "Success");
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError error) {
+//                Log.i("MainActivity", "Failure");
+//            }
+//        });
     }
 
     private void startBodyFragment() {
@@ -85,7 +89,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
-//                navDrawerLayout.closeDrawers();
                 invalidateOptionsMenu();
             }
 
@@ -105,29 +108,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-    }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        switch (item.getItemId()) {
-//            case android.R.id.home:
-//                navDrawerLayout.openDrawer(GravityCompat.START);  // OPEN DRAWER
-//                return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-//        return super.onPrepareOptionsMenu(menu);
-        // If the nav drawer is open, hide action items related to the content view
-//        boolean drawerOpen = navDrawerLayout.isDrawerOpen(GravityCompat.START);
-//        menu.findItem(R.id.action_websearch).setVisible(!drawerOpen);
-        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
