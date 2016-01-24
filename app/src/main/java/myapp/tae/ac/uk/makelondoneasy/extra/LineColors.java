@@ -9,10 +9,18 @@ import myapp.tae.ac.uk.makelondoneasy.R;
 
 /**
  * Created by Karma on 21/01/16.
+ * <p/>
+ * LineColors static class is used to retrieve TFL line colour and text color. The text which uses
+ * the text color is the text which displays name of TFL line.
  */
 public class LineColors {
     private static int buildVersion = Build.VERSION.SDK_INT;
 
+    /**
+     * @param context
+     * @param lineName
+     * @return
+     */
     public static int[] getTextLineColors(Context context, String lineName) {
         int lineColor = -1;
         int textColor = -1;

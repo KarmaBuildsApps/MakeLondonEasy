@@ -9,9 +9,76 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <RelativeLayout
+            android:id="@+id/rlSearchJourney"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="This is Test Text" />
+            android:layout_margin="@dimen/_16sdp"
+            android:descendantFocusability="beforeDescendants"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilFromSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:hint="@string/formFromHintText">
+
+                <AutoCompleteTextView
+                    android:id="@+id/actvToSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/_6sdp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilToSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tilFromSearch"
+                android:hint="@string/formToHintText">
+
+                <AutoCompleteTextView
+                    android:id="@+id/actvFromSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/_6sdp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/btSearchJourney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/tilToSearch"
+                android:text="@string/formSearchButtonText" />
+
+            <TextView
+                android:id="@+id/tvFilterSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tilToSearch"
+                android:layout_marginRight="@dimen/_16sdp"
+                android:layout_toLeftOf="@id/btSearchJourney"
+                android:onClick="onFilterSearch"
+                android:text="@string/formFilterSearchText" />
+
+            <TextView
+                android:id="@+id/tvJSearchResultHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btSearchJourney"
+                android:gravity="center"
+                android:text="Search Result" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rcJourneySearchResults"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvJSearchResultHeader"
+                android:paddingBottom="@dimen/_50sdp" />
+        </RelativeLayout>
+
     </ScrollView>
 </android.support.v4.widget.SwipeRefreshLayout>

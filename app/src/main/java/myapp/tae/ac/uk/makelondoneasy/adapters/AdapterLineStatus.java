@@ -4,23 +4,16 @@ import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Build;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import myapp.tae.ac.uk.makelondoneasy.BuildConfig;
 import myapp.tae.ac.uk.makelondoneasy.R;
 import myapp.tae.ac.uk.makelondoneasy.api.ItemOnClickInterface;
 import myapp.tae.ac.uk.makelondoneasy.extra.LineColors;
@@ -33,9 +26,6 @@ import myapp.tae.ac.uk.makelondoneasy.model.lineStatus.TFLLineStatus;
 public class AdapterLineStatus extends RecyclerView.Adapter<AdapterLineStatus.ViewHolder> {
     private Context context;
     private List<TFLLineStatus> tflLineStatuses;
-    private String[] detail = {"This is Detail 1. This is no very long text.", "This is Detail 2. This is no very long text.",
-            "This is Detail 3. This is no very long text.", "This is Detail 4. This is no very long text."};
-    private String[] header = {"Header 1", "Header 2", "Header 3", "Header 4"};
 
     public AdapterLineStatus(Context context, List<TFLLineStatus> tflLineStatus) {
         this.context = context;
@@ -57,6 +47,11 @@ public class AdapterLineStatus extends RecyclerView.Adapter<AdapterLineStatus.Vi
         holder.lineNameColor.setText(tflLineStatus.getName());
         holder.lineNameColor.setTextColor(colors[1]);
         holder.tvLineStatusHeader.setText(statusInfo[1]);
+        if (!statusInfo[1].equals("Good Service")) {
+            holder.tvLineStatusHeader.setTextColor(Color.RED);
+        } else {
+            holder.tvLineStatusHeader.setTextColor(Color.BLACK);
+        }
         holder.tvStatusDetail.setText(statusInfo[2]);
         holder.setOnItemClickInterface(new ItemOnClickInterface() {
             @Override
@@ -68,7 +63,10 @@ public class AdapterLineStatus extends RecyclerView.Adapter<AdapterLineStatus.Vi
 
     @Override
     public int getItemCount() {
-        return tflLineStatuses.size();
+        if (tflLineStatuses != null)
+            return tflLineStatuses.size();
+        else
+            return 0;
     }
 
 //    /**
@@ -101,12 +99,11 @@ public class AdapterLineStatus extends RecyclerView.Adapter<AdapterLineStatus.Vi
         String lineId = line.getId();
         String statusHeader = lineStatus.getStatusSeverityDescription();
         String statusDetail = "";
-        if (lineStatus.getStatusSeverity() < 10 && lineStatus.getValidityPeriods().get(0).getIsNow()) {
+        if (lineStatus.getStatusSeverity() < 10) {//&& lineStatus.getValidityPeriods().get(0).getIsNow()
             statusDetail = lineStatus.getReason();
         } else {
             statusDetail = lineStatus.getStatusSeverityDescription();
         }
-        Log.i("LineDetails", lineId);
         String[] lineStatusDetail = {lineId, statusHeader, statusDetail};
         return lineStatusDetail;
     }
@@ -135,7 +132,7 @@ public class AdapterLineStatus extends RecyclerView.Adapter<AdapterLineStatus.Vi
 
 
         @Override
-        public void onClick(View v) {
+        public void onClick(View v) {// FIXME: 22/01/16
             Log.i("ViewHolder", "Item number " + getLayoutPosition() + " is Clicked");
             if (expandableView.getVisibility() == View.GONE) {
                 expand();
@@ -153,8 +150,8 @@ public class AdapterLineStatus extends RecyclerView.Adapter<AdapterLineStatus.Vi
             //set Visible
             expandableView.setVisibility(View.VISIBLE);
 
-            final int widthSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
-            final int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+            int widthSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+            int heightSpec = View.MeasureSpec.makeMeasureSpec(expandableView.getHeight(), View.MeasureSpec.UNSPECIFIED);
             expandableView.measure(widthSpec, heightSpec);
 
             ValueAnimator mAnimator = slideAnimator(0, expandableView.getMeasuredHeight());
@@ -172,7 +169,7 @@ public class AdapterLineStatus extends RecyclerView.Adapter<AdapterLineStatus.Vi
                     int value = (Integer) valueAnimator.getAnimatedValue();
                     ViewGroup.LayoutParams layoutParams = expandableView.getLayoutParams();
                     layoutParams.height = value;
-                    expandableView.setLayoutParams(layoutParams);
+                    expandableView.requestLayout();
                 }
             });
             return animator;

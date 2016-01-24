@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/_6sdp"
+    android:orientation="vertical"
+    android:padding="@dimen/_5sdp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvJSearchResultName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tvJSearchResultStart"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvJSearchResultName"
+            android:text="Start" />
+
+        <TextView
+            android:id="@+id/tvJSearchResultStartValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvJSearchResultName"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_toRightOf="@id/tvJSearchResultStart"
+            android:text="17:00:00" />
+
+
+        <TextView
+            android:id="@+id/tvJSearchResultDuration"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvJSearchResultStart"
+            android:text="Duration" />
+
+        <TextView
+            android:id="@+id/tvJSearchResultDurationValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvJSearchResultStartValue"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_toRightOf="@id/tvJSearchResultDuration"
+            android:text="50MINS" />
+
+        <TextView
+            android:id="@+id/tvJSearchResultChangeCount"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvJSearchResultDuration"
+            android:text="No of Changes" />
+
+        <TextView
+            android:id="@+id/tvJSearchResultChangesValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvJSearchResultDuration"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_toRightOf="@id/tvJSearchResultChangeCount"
+            android:text="5" />
+
+        <TextView
+            android:id="@+id/tvJSearchResultChangesDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvJSearchResultChangeCount"
+            android:gravity="center" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

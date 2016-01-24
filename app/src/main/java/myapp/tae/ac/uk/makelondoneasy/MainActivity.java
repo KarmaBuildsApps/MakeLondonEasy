@@ -1,6 +1,8 @@
 package myapp.tae.ac.uk.makelondoneasy;
 
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,24 +11,32 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 
+import com.astuetz.PagerSlidingTabStrip;
 import com.crashlytics.android.Crashlytics;
 
 import io.fabric.sdk.android.Fabric;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import myapp.tae.ac.uk.makelondoneasy.adapters.AdapterPager;
 import myapp.tae.ac.uk.makelondoneasy.adapters.RestroInterface;
 import myapp.tae.ac.uk.makelondoneasy.api.TFLInterface;
 import myapp.tae.ac.uk.makelondoneasy.model.lineStatus.TFLLineStatus;
 import myapp.tae.ac.uk.makelondoneasy.model.searchP.SearchPlace;
 import myapp.tae.ac.uk.makelondoneasy.model.tofromJourney.ToFrom;
+import myapp.tae.ac.uk.makelondoneasy.ui.Fragment1;
 import myapp.tae.ac.uk.makelondoneasy.ui.LineStatusFragment;
 import myapp.tae.ac.uk.makelondoneasy.ui.NavigationMenuFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     DrawerLayout navDrawerLayout;
     Toolbar toolbar;
+    ViewPager viewPager;
+    AdapterPager pagerAdapter;
+    PagerSlidingTabStrip tabs;
     ActionBarDrawerToggle navToggleBar;
     NavigationMenuFragment nvMenuFragment;
     LineStatusFragment lineStatusFragment;
@@ -43,14 +53,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_layout);
+        viewPager = (ViewPager) findViewById(R.id.fragmentVPager);
+        tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+        List<Fragment> fragments = new ArrayList<Fragment>();
+        fragments.add(new Fragment1());
+        fragments.add(new LineStatusFragment());
+        pagerAdapter = new AdapterPager(getSupportFragmentManager(), fragments);
+        viewPager.setAdapter(pagerAdapter);
+        tabs.setViewPager(viewPager);
         navDrawerLayout = (DrawerLayout) findViewById(R.id.navDrawerLayout);
         setToolbar();
         setToggle();
         navDrawerLayout.setDrawerListener(navToggleBar);
         nvMenuFragment = (NavigationMenuFragment) getSupportFragmentManager().findFragmentById(R.id.nvMenuFragment);
         nvMenuFragment.sendDrawerLayout(navDrawerLayout);
-        startBodyFragment();
+//        startBodyFragment();
         queryOptions = new HashMap<>();
         tflInterface = RestroInterface.getTFLInterface();
 //        tflInterface.getJourney("1000248/to/1000068", queryOptions, new Callback<ToFrom>() {

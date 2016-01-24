@@ -48,6 +48,8 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
         });
     }
 
+
+
     @Override
     public int getItemCount() {
         return menuItems.length;
