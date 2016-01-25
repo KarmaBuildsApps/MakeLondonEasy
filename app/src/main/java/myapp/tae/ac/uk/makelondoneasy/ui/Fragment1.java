@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import java.util.HashMap;
 import java.util.List;
@@ -27,17 +28,14 @@ import retrofit.client.Response;
 /**
  * Created by Karma on 19/01/16.
  */
-public class Fragment1 extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+public class Fragment1 extends Fragment {
     private String TAG = "Journey Planner";
-    private SwipeRefreshLayout swipeLayout;
     private ProgressDialog progressDialog;
     private TFLInterface tflInterface;
-    private RecyclerView rcJSearchResult;
     private AdapterJSearchResult adapterJSearchResult;
     private Map<String, String> searchFilter;
-    private boolean isSearched = false;
     private String query = "1000238/to/1000226";
-    private List<myapp.tae.ac.uk.makelondoneasy.model.tofromJourney.Journey> journeyOptions;
+    private ArrayAdapter<String> arrayAdapter;
 
     public Fragment1() {
 
@@ -46,29 +44,19 @@ public class Fragment1 extends Fragment implements SwipeRefreshLayout.OnRefreshL
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment1_layout, container, false);
-        swipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeLayout);
-        swipeLayout.setOnRefreshListener(this);
-        rcJSearchResult = (RecyclerView) view.findViewById(R.id.rcJourneySearchResults);
-        rcJSearchResult.setHasFixedSize(true);
-        rcJSearchResult.setLayoutManager(new LinearLayoutManager(rcJSearchResult.getContext()));
-        searchFilter = new HashMap<>();
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Loading...");
         tflInterface = RestroInterface.getTFLInterface();
-        updateJourneySearch();
         return view;
     }
 
+
     public void updateJourneySearch() {
-        if (!swipeLayout.isRefreshing())
-            progressDialog.show();
+        progressDialog.show();
         tflInterface.getJourney(query, searchFilter, new Callback<ToFrom>() {
             @Override
             public void success(ToFrom toFrom, Response response) {
                 progressDialog.dismiss();
-                journeyOptions = toFrom.getJourneys();
-                adapterJSearchResult = new AdapterJSearchResult(getActivity(), journeyOptions);
-                rcJSearchResult.setAdapter(adapterJSearchResult);
             }
 
             @Override
@@ -77,20 +65,6 @@ public class Fragment1 extends Fragment implements SwipeRefreshLayout.OnRefreshL
 
             }
         });
-    }
-
-    @Override
-    public void onRefresh() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                swipeLayout.setRefreshing(false);
-            }
-        }, 1000);
-    }
-
-    public String getTagName() {
-        return TAG;
     }
 
 }
