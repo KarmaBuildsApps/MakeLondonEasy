@@ -28,7 +28,10 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="@string/googleMapKey" />
 
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,6 +43,12 @@
             android:label="@string/jsearchMap" />
         <activity
             android:name=".ui.JSearchResults"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/jsearchResults" />
+
+        <activity
+            android:name=".ui.JSearchDirecText"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/jsearchResults" />
 
         <activity

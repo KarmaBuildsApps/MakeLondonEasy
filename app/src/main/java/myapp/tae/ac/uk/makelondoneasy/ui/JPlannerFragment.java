@@ -36,7 +36,6 @@ import myapp.tae.ac.uk.makelondoneasy.adapters.AdapterJSearchResult;
 import myapp.tae.ac.uk.makelondoneasy.adapters.RestroInterface;
 import myapp.tae.ac.uk.makelondoneasy.api.TFLInterface;
 import myapp.tae.ac.uk.makelondoneasy.constants.Constants;
-import myapp.tae.ac.uk.makelondoneasy.constants.JourneyPref;
 import myapp.tae.ac.uk.makelondoneasy.model.searchP.Match;
 import myapp.tae.ac.uk.makelondoneasy.model.searchP.SearchPlace;
 import myapp.tae.ac.uk.makelondoneasy.model.tofromJourney.ToFrom;
@@ -87,6 +86,17 @@ public class JPlannerFragment extends Fragment implements View.OnClickListener, 
 //        getAutoSuggest();
         return view;
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putString(Constants.FROM_ICSCODE, fromPlaceIcsCode);
+        outState.putString(Constants.TO_ICSCODE, toPlaceIcsCode);
+        outState.putParcelable(Constants.JOURNEY_INFO_BUNDLE, new QueryOptions(searchFilter));
+
+        super.onSaveInstanceState(outState);
+    }
+
+
 
     private void startViews(View view) {
         btSearch = (Button) view.findViewById(R.id.btSearchJourney);

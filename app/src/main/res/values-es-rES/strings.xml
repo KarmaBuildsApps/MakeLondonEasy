@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Make London Easy</string>
+    <string name="jsearchMap">Planificador de Viaje</string>
+    <string name="jsearchResults">Buscar Viaje</string>
+    <string name="payPal">PayPal Method</string>
+    <string name="drawer_open">Abierto</string>
+    <string name="drawer_close">Cerca</string>
+    <string name="googleMapKey">AIzaSyCzw_ofdESHFCHWsmt5yOikhHu2vB4xnBo</string>
+    <string name="payPayAPIKey">AXpG_42wZ5no9XUiUDj8YqGxw3g0CJh-hUsJH2VvmaZMGb5zQLP8lMQpUIB2Fq6IzZeJrNSrL961ZAXz</string>
+    <string name="testText">Test Text</string>
+    <string name="jSFilterNationSearch">Nación rango Buscar</string>
+    <string name="jSFilterTimeIs">Tiempo es</string>
+    <string name="jSFilterJPref">Preferencia Viaje</string>
+    <string name="jSFilterTimeIsDepart">saliendo</string>
+    <string name="jSFilterTimeIsArriving">llegando</string>
+    <!--For Search Form-->
+    <string name="formFromHintText">De</string>
+    <string name="formToHintText">A</string>
+    <string name="formFilterSearchText">Filtrar Búsqueda</string>
+    <string name="formSearchButtonText">Buscar</string>
+    <string-array name="drawerMenu">
+        <item>Planificador de Viaje</item>
+        <item>Línea de estado</item>
+        <item>Other Services Around You</item>
+        <item>Buy Oyster card</item>
+    </string-array>
+</resources>

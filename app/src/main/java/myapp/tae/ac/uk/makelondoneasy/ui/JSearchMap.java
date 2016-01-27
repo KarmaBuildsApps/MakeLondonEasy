@@ -31,7 +31,6 @@ public class JSearchMap extends FragmentActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap map) {
         map.setMyLocationEnabled(true);
         map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-
         map.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
     }
 }

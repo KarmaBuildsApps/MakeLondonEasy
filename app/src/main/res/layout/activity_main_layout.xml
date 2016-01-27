@@ -30,9 +30,6 @@
         android:layout_width="@dimen/_260sdp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="#111"
-        android:choiceMode="singleChoice"
-        android:divider="@android:color/transparent"
         android:dividerHeight="0dp"
         app:layout="@layout/fragment_navigation_drawer"
         tools:layout="@layout/fragment_navigation_drawer" />

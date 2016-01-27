@@ -1,6 +1,8 @@
 package myapp.tae.ac.uk.makelondoneasy.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +12,12 @@ import android.widget.TextView;
 import java.util.List;
 
 import myapp.tae.ac.uk.makelondoneasy.R;
+import myapp.tae.ac.uk.makelondoneasy.api.ItemOnClickInterface;
+import myapp.tae.ac.uk.makelondoneasy.constants.Constants;
 import myapp.tae.ac.uk.makelondoneasy.model.tofromJourney.Journey;
+import myapp.tae.ac.uk.makelondoneasy.model.tofromJourney.Leg;
+import myapp.tae.ac.uk.makelondoneasy.ui.JSearchDirecText;
+import myapp.tae.ac.uk.makelondoneasy.ui.JSearchResults;
 
 /**
  * Created by Karma on 24/01/16.
@@ -32,7 +39,7 @@ public class AdapterJSearchResult extends RecyclerView.Adapter<AdapterJSearchRes
 
     @Override
     public void onBindViewHolder(AdapterJSearchResult.ViewHolder holder, int position) {
-        Journey journeyOption = journeyOptions.get(position);
+        final Journey journeyOption = journeyOptions.get(position);
         String startTime = getJOptionStartTime(journeyOption);
         String journeyDuration = journeyOption.getDuration() + "";
         String lineChangesDetail = getJOptionLineChangesDetail(journeyOption);
@@ -42,17 +49,30 @@ public class AdapterJSearchResult extends RecyclerView.Adapter<AdapterJSearchRes
         holder.journeyResultDurationValue.setText(journeyDuration);
         holder.journeyLineChangesValue.setText(lineChangesCount);
         holder.journeyLineChangeDetail.setText(lineChangesDetail);
-
-
+        holder.setOnClickInterface(new ItemOnClickInterface() {
+            @Override
+            public void onItemClick(View view, int pos) {
+                ((JSearchResults) context).showDetail(journeyOption);
+            }
+        });
     }
 
     private String getJOptionLineChangesDetail(Journey journeyOption) {
         String lineChangesDetail = "";
+        String prevStop = "";
+        Leg leg;
         for (int i = 0; i < journeyOption.getLegs().size(); i++) {
+            leg = journeyOption.getLegs().get(i);
             if (i == 0) {
-                lineChangesDetail += journeyOption.getLegs().get(i).getInstruction().getDetailed() + "\n";
+                lineChangesDetail += "Go to " + leg.getArrivalPoint().getCommonName() + " Using ";
+                lineChangesDetail += leg.getInstruction().getDetailed() + "\n";
+                prevStop = leg.getArrivalPoint().getCommonName();
             } else if (i == journeyOption.getLegs().size() - 1) {
-                lineChangesDetail += " And \n" + journeyOption.getLegs().get(i).getInstruction().getDetailed()+"\n";
+                lineChangesDetail += " And \n";
+                lineChangesDetail += "From " + prevStop + ", ";
+                lineChangesDetail += "Go to " + leg.getArrivalPoint().getCommonName() + " Using ";
+                lineChangesDetail += leg.getInstruction().getDetailed() + "\n";
+                prevStop = leg.getArrivalPoint().getCommonName();
             }
         }
         return lineChangesDetail;
@@ -72,6 +92,7 @@ public class AdapterJSearchResult extends RecyclerView.Adapter<AdapterJSearchRes
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView journeyResultName, journeyResultStartValue, journeyResultDurationValue, journeyLineChangesValue,
                 journeyLineChangeDetail;
+        private ItemOnClickInterface onClickInterface;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -83,9 +104,13 @@ public class AdapterJSearchResult extends RecyclerView.Adapter<AdapterJSearchRes
             itemView.setOnClickListener(this);
         }
 
+        public void setOnClickInterface(ItemOnClickInterface onClickInterface) {
+            this.onClickInterface = onClickInterface;
+        }
+
         @Override
         public void onClick(View v) {
-
+            onClickInterface.onItemClick(v, getLayoutPosition());
         }
     }
 }

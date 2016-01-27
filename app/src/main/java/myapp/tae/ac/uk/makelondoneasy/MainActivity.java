@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 
@@ -27,11 +28,13 @@ import myapp.tae.ac.uk.makelondoneasy.api.TFLInterface;
 import myapp.tae.ac.uk.makelondoneasy.model.lineStatus.TFLLineStatus;
 import myapp.tae.ac.uk.makelondoneasy.model.searchP.SearchPlace;
 import myapp.tae.ac.uk.makelondoneasy.model.tofromJourney.ToFrom;
+import myapp.tae.ac.uk.makelondoneasy.push_notification.GcmRegistrationAsyncTask;
 import myapp.tae.ac.uk.makelondoneasy.ui.JPlannerFragment;
 import myapp.tae.ac.uk.makelondoneasy.ui.LineStatusFragment;
 import myapp.tae.ac.uk.makelondoneasy.ui.NavigationMenuFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    static final String TAG = "MainActivity";
     DrawerLayout navDrawerLayout;
     Toolbar toolbar;
     ViewPager viewPager;
@@ -53,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
+        startGCMService();
         setContentView(R.layout.activity_main_layout);
         viewPager = (ViewPager) findViewById(R.id.fragmentVPager);
         tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
@@ -82,6 +86,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                Log.i("MainActivity", "Failure");
 //            }
 //        });
+    }
+
+    private void startGCMService() {
+        GcmRegistrationAsyncTask gcm = new GcmRegistrationAsyncTask(this);
+        gcm.execute();
+        Log.i(TAG, "startGCMService: has started");
     }
 
     private void startBodyFragment() {

@@ -1,12 +1,16 @@
 package myapp.tae.ac.uk.makelondoneasy.ui;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.*;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 
 import java.util.HashMap;
 import java.util.List;
@@ -40,11 +44,13 @@ public class JSearchResults extends AppCompatActivity implements SwipeRefreshLay
     private List<Journey> journeyOptions;
     private boolean isFirstStart = true;
     private String queryString;
+    private Context thisClass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.jsearch_result_matched_options_layout);
+        thisClass = this;
         rcJSearchResult = (RecyclerView) findViewById(R.id.rcJSearchResults);
         rcJSearchResult.setLayoutManager(new LinearLayoutManager(this));
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.srlJourneyResultsRefresh);
@@ -78,7 +84,7 @@ public class JSearchResults extends AppCompatActivity implements SwipeRefreshLay
                     progressDialog.dismiss();
                 journeyOptions = toFrom.getJourneys();
                 Log.i(TAG, "success: ");
-                adapterJSearchResult = new AdapterJSearchResult(getApplicationContext(), journeyOptions);
+                adapterJSearchResult = new AdapterJSearchResult(thisClass, journeyOptions);
                 rcJSearchResult.setAdapter(adapterJSearchResult);
             }
 
@@ -109,5 +115,13 @@ public class JSearchResults extends AppCompatActivity implements SwipeRefreshLay
     @Override
     public void onRefresh() {
         getOrUpdateJourney();
+    }
+
+    public void showDetail(Journey journeyOption) {
+        Intent i = new Intent(this, JSearchDirecText.class);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(Constants.JOURNEY_OPTION_DETAIL, journeyOption);
+        i.putExtras(bundle);
+        startActivity(i);
     }
 }
