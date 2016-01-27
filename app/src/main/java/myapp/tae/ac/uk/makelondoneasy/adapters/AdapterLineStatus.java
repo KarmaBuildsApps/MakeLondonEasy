@@ -16,7 +16,7 @@ import java.util.List;
 
 import myapp.tae.ac.uk.makelondoneasy.R;
 import myapp.tae.ac.uk.makelondoneasy.api.ItemOnClickInterface;
-import myapp.tae.ac.uk.makelondoneasy.extra.LineColors;
+import myapp.tae.ac.uk.makelondoneasy.ui.extra.LineColors;
 import myapp.tae.ac.uk.makelondoneasy.model.lineStatus.LineStatus;
 import myapp.tae.ac.uk.makelondoneasy.model.lineStatus.TFLLineStatus;
 

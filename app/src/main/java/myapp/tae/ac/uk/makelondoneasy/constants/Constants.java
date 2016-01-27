@@ -5,8 +5,9 @@ package myapp.tae.ac.uk.makelondoneasy.constants;
  */
 public class Constants {
     public static final String BASE_URL = "https://api.tfl.gov.uk";
+    public static final String LINE_MODE_DEFAULT = "tube,dlr,overground,tflrail";
     public static final String JOURNEY_TO_FROM_QUERY = "/journey/journeyresults/{to_from_query}";
-    public static final String SEARCH_STOPPOINT_REQUEST_QUERY = "/Stoppoint/Search/{query-terms}";
+    public static final String SEARCH_STOPPOINT_REQUEST_QUERY = "/Stoppoint/Search/{query-terms}?modes=" + LINE_MODE_DEFAULT;
     public static final String SEARCH_MODE_TUBE = "?modes=tube";
     //https://api.tfl.gov.uk/Line/Mode/tube,dlr,overground,tflrail/Status
     public static final String JOURNEY_LINE_STATUS_QUERY = "/Line/Mode/{modes}/Status";
@@ -18,7 +19,10 @@ public class Constants {
     public static final String LINE_MODE_RAIL = "tflrai";
     public static final String LINE_MODE_DLR = "dlr";
     public static final String LINE_MODE_OVERGROUND = "overground";
-    public static final String LINE_MODE_DEFAULT = "tube,dlr,overground,tflrail";
+    public final static String FROM_ICSCODE = "toIcsCode";
+    public final static String TO_ICSCODE = "fromIcsCode";
+    public final static String JOURNEY_INFO_BUNDLE = "jSearchBundleName";
+    public static final String JOURNEY_OPTION_DETAIL = "journeyOptionDetail";
 //https://api.tfl.gov.uk/Journey/JourneyResults/1000248/to/1000068?nationalSearch=False&timeIs=Departing&journeyPreference=LeastTime&app_id=69e7863b&app_key=6e4d8b6e246808c7de67ec5f950c8c34
 
     /**
@@ -28,5 +32,6 @@ public class Constants {
     public static final String JOURNEY_VAR_TIMEIS = "timeis";
     public static final String JOURNEY_VAR_NSearch = "nationalSearch";
     public static final String JOURNEY_NATIONAL_SEARCH_DEFAULT = "False";
+
 
 }

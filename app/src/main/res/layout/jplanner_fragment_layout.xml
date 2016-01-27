@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlSearchJourney"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_16sdp"
+    android:descendantFocusability="beforeDescendants"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:padding="@dimen/_10sdp">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilFromSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:hint="@string/formFromHintText">
+
+        <myapp.tae.ac.uk.makelondoneasy.ui.extra.DelayAutoCompleteTextView
+            android:id="@+id/actvFromSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/_6sdp" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <ProgressBar
+        android:id="@+id/pbFromAutoComplete"
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:visibility="gone" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilToSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tilFromSearch"
+        android:hint="@string/formToHintText">
+
+        <myapp.tae.ac.uk.makelondoneasy.ui.extra.DelayAutoCompleteTextView
+            android:id="@+id/actvToSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/_6sdp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <ProgressBar
+        android:id="@+id/pbToAutoComplete"
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tilFromSearch"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btSearchJourney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tilToSearch"
+        android:text="@string/formSearchButtonText" />
+
+    <TextView
+        android:id="@+id/tvFilterSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tilToSearch"
+        android:layout_marginRight="@dimen/_16sdp"
+        android:layout_toLeftOf="@id/btSearchJourney"
+        android:text="@string/formFilterSearchText" />
+
+    <RelativeLayout
+        android:id="@+id/rlJSearchFilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btSearchJourney"
+        android:layout_marginTop="@dimen/_16sdp"
+        >
+
+        <TextView
+            android:id="@+id/tvJSFilterNation"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:text="@string/jSFilterNationSearch" />
+
+        <CheckBox
+            android:id="@+id/cbJFilterNation"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/_20sdp" />
+
+        <TextView
+            android:id="@+id/tvJSFilterTimeIs"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvJSFilterNation"
+            android:text="@string/jSFilterTimeIs" />
+
+        <RadioGroup
+            android:id="@+id/rgJSFilterTimeIs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tvJSFilterNation"
+            android:layout_toRightOf="@id/tvJSFilterTimeIs">
+
+            <RadioButton
+                android:id="@+id/rbJSFilterTimeIsDeparting"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:text="@string/jSFilterTimeIsDepart" />
+
+            <RadioButton
+                android:id="@+id/rbJSFilterTimeIsArriving"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_30sdp"
+                android:text="@string/jSFilterTimeIsArriving" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tvJSFilterJPref"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rgJSFilterTimeIs"
+            android:text="@string/jSFilterJPref" />
+
+        <Spinner
+            android:id="@+id/spJSearchFilterJPref"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rgJSFilterTimeIs"
+            android:layout_toRightOf="@id/tvJSFilterJPref"
+            android:minHeight="@dimen/_30sdp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/ivJourneyImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rlJSearchFilter" />
+
+</RelativeLayout>

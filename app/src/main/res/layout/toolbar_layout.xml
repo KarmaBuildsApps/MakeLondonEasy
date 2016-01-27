@@ -15,23 +15,23 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
 
-        <TextView
-            android:id="@+id/tvToolbarBasket"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/ivToolbarPaypal"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
             android:layout_alignParentRight="true"
-            android:layout_marginLeft="5dp"
-            android:gravity="center"
-            android:text="ToolBar"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:clickable="true"
+            android:src="@drawable/paypal" />
 
         <ImageView
             android:id="@+id/ivToolBarWish"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_toLeftOf="@id/tvToolbarBasket" />
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_toLeftOf="@id/ivToolbarPaypal"
+            android:src="@drawable/google_plus" />
 
 
     </RelativeLayout>

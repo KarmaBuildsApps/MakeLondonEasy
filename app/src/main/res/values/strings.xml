@@ -1,7 +1,18 @@
 <resources>
     <string name="app_name">Make London Easy</string>
+    <string name="jsearchMap">Journey Planner</string>
+    <string name="jsearchResults">Journey Search</string>
+    <string name="payPal">PayPal Method</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    <string name="googleMapKey">AIzaSyCzw_ofdESHFCHWsmt5yOikhHu2vB4xnBo</string>
+    <string name="payPayAPIKey">AXpG_42wZ5no9XUiUDj8YqGxw3g0CJh-hUsJH2VvmaZMGb5zQLP8lMQpUIB2Fq6IzZeJrNSrL961ZAXz</string>
+    <string name="testText">Test Text</string>
+    <string name="jSFilterNationSearch">Nation Search</string>
+    <string name="jSFilterTimeIs">Time Is</string>
+    <string name="jSFilterJPref">Journey Preference</string>
+    <string name="jSFilterTimeIsDepart">Departing</string>
+    <string name="jSFilterTimeIsArriving">Arriving</string>
     <!--For Search Form-->
     <string name="formFromHintText">From</string>
     <string name="formToHintText">To</string>

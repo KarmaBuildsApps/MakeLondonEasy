@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayoutdown_arrow.png xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/_16sdp">
+
+    <TextView
+        android:id="@+id/tvDirStopPointName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/_50sdp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvDirStopPointName"
+        android:orientation="horizontal"
+        android:weightSum="100">
+<!--
+        <RelativeLayout
+            android:id="@+id/tvDirArrow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:minHeight="@dimen/_60sdp">
+
+            <TextView
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorDlr" />
+
+            <ImageView
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/down_arrow" />
+
+        </RelativeLayout>
+
+-->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/tvDirLineArror"
+            android:layout_weight="10"/>
+        <TextView
+            android:id="@+id/tvDirLineStopInfo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="90" />
+    </LinearLayout>
+
+</RelativeLayoutdown_arrow.png>

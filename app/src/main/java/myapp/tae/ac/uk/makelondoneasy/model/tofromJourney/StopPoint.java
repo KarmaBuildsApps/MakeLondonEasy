@@ -10,8 +10,8 @@ import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
-public class StopPoint implements Parcelable
-{
+
+public class StopPoint implements Parcelable {
 
     @SerializedName("$type")
     @Expose
@@ -28,6 +28,9 @@ public class StopPoint implements Parcelable
     @SerializedName("type")
     @Expose
     private String type;
+    @SerializedName("line")
+    @Expose
+    private String line;
     public final static Parcelable.Creator<StopPoint> CREATOR = new Creator<StopPoint>() {
 
 
@@ -38,6 +41,7 @@ public class StopPoint implements Parcelable
             instance.name = ((String) in.readValue((String.class.getClassLoader())));
             instance.uri = ((String) in.readValue((String.class.getClassLoader())));
             instance.type = ((String) in.readValue((String.class.getClassLoader())));
+            instance.line = ((String) in.readValue((String.class.getClassLoader())));
             return instance;
         }
 
@@ -45,94 +49,81 @@ public class StopPoint implements Parcelable
             return (new StopPoint[size]);
         }
 
-    }
-    ;
+    };
 
     /**
-     * 
-     * @return
-     *     The $type
+     * @return The $type
      */
     public String get$type() {
         return $type;
     }
 
     /**
-     * 
-     * @param $type
-     *     The $type
+     * @param $type The $type
      */
     public void set$type(String $type) {
         this.$type = $type;
     }
 
     /**
-     * 
-     * @return
-     *     The id
+     * @return The id
      */
     public String getId() {
         return id;
     }
 
     /**
-     * 
-     * @param id
-     *     The id
+     * @param id The id
      */
     public void setId(String id) {
         this.id = id;
     }
 
     /**
-     * 
-     * @return
-     *     The name
+     * @return The name
      */
     public String getName() {
         return name;
     }
 
     /**
-     * 
-     * @param name
-     *     The name
+     * @param name The name
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * 
-     * @return
-     *     The uri
+     * @return The uri
      */
     public String getUri() {
         return uri;
     }
 
     /**
-     * 
-     * @param uri
-     *     The uri
+     * @param uri The uri
      */
     public void setUri(String uri) {
         this.uri = uri;
     }
 
     /**
-     * 
-     * @return
-     *     The type
+     * @return The type
      */
     public String getType() {
         return type;
     }
 
+    public String getLine() {
+        return line;
+    }
+
+    public void setLine(String line) {
+        this.line = line;
+    }
+
     /**
-     * 
-     * @param type
-     *     The type
+     * @param type The type
      */
     public void setType(String type) {
         this.type = type;
@@ -166,10 +157,11 @@ public class StopPoint implements Parcelable
         dest.writeValue(name);
         dest.writeValue(uri);
         dest.writeValue(type);
+        dest.writeValue(line);
     }
 
     public int describeContents() {
-        return  0;
+        return 0;
     }
 
 }

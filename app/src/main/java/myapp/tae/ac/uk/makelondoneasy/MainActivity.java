@@ -27,7 +27,7 @@ import myapp.tae.ac.uk.makelondoneasy.api.TFLInterface;
 import myapp.tae.ac.uk.makelondoneasy.model.lineStatus.TFLLineStatus;
 import myapp.tae.ac.uk.makelondoneasy.model.searchP.SearchPlace;
 import myapp.tae.ac.uk.makelondoneasy.model.tofromJourney.ToFrom;
-import myapp.tae.ac.uk.makelondoneasy.ui.Fragment1;
+import myapp.tae.ac.uk.makelondoneasy.ui.JPlannerFragment;
 import myapp.tae.ac.uk.makelondoneasy.ui.LineStatusFragment;
 import myapp.tae.ac.uk.makelondoneasy.ui.NavigationMenuFragment;
 
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         viewPager = (ViewPager) findViewById(R.id.fragmentVPager);
         tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         List<Fragment> fragments = new ArrayList<Fragment>();
-        fragments.add(new Fragment1());
+        fragments.add(new JPlannerFragment());
         fragments.add(new LineStatusFragment());
         pagerAdapter = new AdapterPager(getSupportFragmentManager(), fragments);
         viewPager.setAdapter(pagerAdapter);

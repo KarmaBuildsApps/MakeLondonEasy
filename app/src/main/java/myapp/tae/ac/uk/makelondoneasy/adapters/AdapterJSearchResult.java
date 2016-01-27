@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 import myapp.tae.ac.uk.makelondoneasy.R;
@@ -28,7 +26,7 @@ public class AdapterJSearchResult extends RecyclerView.Adapter<AdapterJSearchRes
 
     @Override
     public AdapterJSearchResult.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.jsearch_results_cardview_layout, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.jsearch_result_matched_cardview_layout, parent, false);
         return new ViewHolder(view);
     }
 
