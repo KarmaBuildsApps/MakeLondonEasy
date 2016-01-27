@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/PXU7rFlpTb-q4elo1GXXnfVFZfE\"",
+ "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/2g8BNkrubzDwOvdNRxfNd-h1-L0\"",
  "discoveryVersion": "v1",
  "id": "messaging:v1",
  "name": "messaging",
@@ -13,9 +13,9 @@
   "x32": "http://www.google.com/images/icons/product/search-32.gif"
  },
  "protocol": "rest",
- "baseUrl": "https://myApplicationId.appspot.com/_ah/api/messaging/v1/sendMessage/",
+ "baseUrl": "https://make-london-easy.appspot.com/_ah/api/messaging/v1/sendMessage/",
  "basePath": "/_ah/api/messaging/v1/sendMessage/",
- "rootUrl": "https://myApplicationId.appspot.com/_ah/api/",
+ "rootUrl": "https://make-london-easy.appspot.com/_ah/api/",
  "servicePath": "messaging/v1/sendMessage/",
  "batchPath": "batch",
  "parameters": {

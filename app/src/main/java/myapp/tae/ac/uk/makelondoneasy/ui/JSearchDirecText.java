@@ -2,7 +2,8 @@ package myapp.tae.ac.uk.makelondoneasy.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.*;
+import android.support.v7.widget.LinearLayoutManager;
 
 import myapp.tae.ac.uk.makelondoneasy.R;
 import myapp.tae.ac.uk.makelondoneasy.adapters.AdapterJSearchDirText;
@@ -21,9 +22,10 @@ public class JSearchDirecText extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.jsearch_direction_text_layout);
-        journeyOption = getIntent().getParcelableExtra(Constants.JOURNEY_OPTION_DETAIL);
+        journeyOption = getIntent().getExtras().getParcelable(Constants.JOURNEY_OPTION_DETAIL);
         adapterJSearchDirText = new AdapterJSearchDirText(this, journeyOption);
         rcOptionDirection = (RecyclerView) findViewById(R.id.rcJSearchDirText);
+        rcOptionDirection.setLayoutManager(new LinearLayoutManager(this));
         rcOptionDirection.setAdapter(adapterJSearchDirText);
     }
 }

@@ -61,7 +61,7 @@ public class GcmIntentService extends IntentService {
                 String message = ((intent.getExtras() == null) ? "Empty Bundle" : intent.getExtras()
                         .getString("message"));
                 if (intent.getExtras() != null
-                        && "myapp.tae.ac.uk.makelondoneasy.push_notification.CLEAR_NOTIFICATION".equals(intent.getExtras()
+                        && "myapp.tae.ac.uk.makelondoneasy.CLEAR_NOTIFICATION".equals(intent.getExtras()
                         .getString("action")))
                 {
                     clearNotification();
@@ -101,7 +101,7 @@ public class GcmIntentService extends IntentService {
         if (extras != null)
         {
             intent.putExtras(extras);
-            intent.setAction("myapp.tae.ac.uk.makelondoneasy.push_notification.NOTIFICATION");
+            intent.setAction("myapp.tae.ac.uk.makelondoneasy.NOTIFICATION");
         }
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
@@ -109,7 +109,7 @@ public class GcmIntentService extends IntentService {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                        .setSmallIcon(R.mipmap.ic_launcher)
-                        .setContentTitle("Service Update:")
+                        .setContentTitle("Let make london Rocks:")
                         .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
                         .setContentText(msg)
                         .setTicker(msg)

@@ -1,7 +1,9 @@
 package myapp.tae.ac.uk.makelondoneasy.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,7 @@ public class AdapterJSearchDirText extends RecyclerView.Adapter<AdapterJSearchDi
     private Journey journeyOption;
     private List<StopPoint> journeyStops = null;
     private DeparturePoint journeyStartPoint = null;
+    private final static String TAG = "AdapterJSearchDirText";
 
     public AdapterJSearchDirText(Context context, Journey journeyOption) {
         this.context = context;
@@ -44,11 +47,12 @@ public class AdapterJSearchDirText extends RecyclerView.Adapter<AdapterJSearchDi
         StopPoint tempStopPoint;
         for (int i = 0; i < journeyOption.getLegs().size(); i++) {
             journeyChange = journeyOption.getLegs().get(i);
-            lineName = journeyChange.getRouteOptions().get(0).getLineIdentifier().getName();
+            lineName = journeyChange.getRouteOptions().get(0).getLineIdentifier().getId();
             for (int j = 0; j < journeyChange.getPath().getStopPoints().size(); j++) {
-                tempStopPoint = journeyOption.getLegs().get(i).getPath().getStopPoints().get(j);
+                tempStopPoint = journeyChange.getPath().getStopPoints().get(j);
                 tempStopPoint.setLine(lineName);
                 stops.add(tempStopPoint);
+                Log.i(TAG, "getAllJOptionStops: Stop Name and Position" + tempStopPoint.getName() + " " + j);
             }
         }
         return stops;
@@ -74,8 +78,14 @@ public class AdapterJSearchDirText extends RecyclerView.Adapter<AdapterJSearchDi
     public void onBindViewHolder(AdapterJSearchDirText.ViewHolder holder, int position) {
         StopPoint stop = journeyStops.get(position);
         int colors[] = LineColors.getTextLineColors(context, stop.getLine());
-        holder.tvDirStopPointName.setBackgroundColor(colors[0]);
         holder.tvDirStopPointName.setTextColor(colors[1]);
+        holder.tvDirStopPointName.setBackgroundColor(colors[0]);
+        holder.tvDirStopPointName.setText(stop.getName());
+        if (position < journeyStops.size() - 1)
+            holder.tvDirLine.setBackgroundColor(colors[0]);
+        else {
+            holder.tvDirLine.setBackgroundColor(Color.WHITE);
+        }
     }
 
     @Override
@@ -86,9 +96,8 @@ public class AdapterJSearchDirText extends RecyclerView.Adapter<AdapterJSearchDi
 
     public int getItemSize() {
         int itemSize = 0;
-        int startPoint = 1;
         if (journeyStops != null) {
-            itemSize = journeyStops.size() + startPoint;
+            itemSize = journeyStops.size();
         }
         return itemSize;
     }

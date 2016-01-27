@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/-8dfieLUBwp6x4DflgBtr6BReS4\"",
+ "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/2AG08XiGMBtx7aDpYz28YgXRIPs\"",
  "discoveryVersion": "v1",
  "id": "registration:v1",
  "name": "registration",
@@ -13,9 +13,9 @@
   "x32": "http://www.google.com/images/icons/product/search-32.gif"
  },
  "protocol": "rest",
- "baseUrl": "https://myApplicationId.appspot.com/_ah/api/registration/v1/",
+ "baseUrl": "https://make-london-easy.appspot.com/_ah/api/registration/v1/",
  "basePath": "/_ah/api/registration/v1/",
- "rootUrl": "https://myApplicationId.appspot.com/_ah/api/",
+ "rootUrl": "https://make-london-easy.appspot.com/_ah/api/",
  "servicePath": "registration/v1/",
  "batchPath": "batch",
  "parameters": {
