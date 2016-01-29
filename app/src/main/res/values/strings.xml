@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Make London Easy</string>
+    <string name="facebook_app_id">473718326155184</string>
+
     <string name="jsearchMap">Journey Planner</string>
+    <string name="jSHistory">JSHistory</string>
     <string name="jsearchResults">Journey Search</string>
     <string name="payPal">PayPal Method</string>
     <string name="drawer_open">Open</string>
@@ -21,7 +24,16 @@
     <string-array name="drawerMenu">
         <item>Journey Planner</item>
         <item>Line Status</item>
-        <item>Other Services Around You</item>
-        <item>Buy Oyster card</item>
+        <item>History</item>
+        <item>Facebook</item>
+        <item>PayPal</item>
     </string-array>
+
+    <integer-array name="drawerMenuIcons">
+        <item>@drawable/travel</item>
+        <item>@drawable/lifeline</item>
+        <item>@drawable/history</item>
+        <item>@drawable/facebook</item>
+        <item>@drawable/paypal</item>
+    </integer-array>
 </resources>

@@ -14,4 +14,7 @@ public enum JourneyPref {
     JourneyPref(String value) {
         this.value = value;
     }
+    public String getValue(){
+        return value;
+    }
 }

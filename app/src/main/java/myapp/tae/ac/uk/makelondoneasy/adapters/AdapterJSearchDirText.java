@@ -29,6 +29,7 @@ public class AdapterJSearchDirText extends RecyclerView.Adapter<AdapterJSearchDi
     private DeparturePoint journeyStartPoint = null;
     private final static String TAG = "AdapterJSearchDirText";
 
+
     public AdapterJSearchDirText(Context context, Journey journeyOption) {
         this.context = context;
         this.journeyOption = journeyOption;

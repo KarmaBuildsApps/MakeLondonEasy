@@ -9,6 +9,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -138,6 +141,8 @@ public class AdapterLineStatus extends RecyclerView.Adapter<AdapterLineStatus.Vi
                 expand();
             } else {
                 collapse();
+//                animationDown(expandableView, expandableView.getHeight());
+
             }
             itemOnClickInterface.onItemClick(v, getLayoutPosition());
         }
@@ -205,7 +210,56 @@ public class AdapterLineStatus extends RecyclerView.Adapter<AdapterLineStatus.Vi
 
             mAnimator.start();
         }
-    }
 
+        //Animation for devices with kitkat and below
+        public void animationDown(final LinearLayout billChoices, int originalHeight) {
+
+            // Declare a ValueAnimator object
+            ValueAnimator valueAnimator;
+            if (!billChoices.isShown()) {
+                billChoices.setVisibility(View.VISIBLE);
+                billChoices.setEnabled(true);
+                valueAnimator = ValueAnimator.ofInt(0, originalHeight + originalHeight); // These values in this method can be changed to expand however much you like
+            } else {
+                valueAnimator = ValueAnimator.ofInt(originalHeight + originalHeight, 0);
+
+                Animation a = new AlphaAnimation(1.00f, 0.00f); // Fade out
+
+                a.setDuration(200);
+                // Set a listener to the animation and configure onAnimationEnd
+                a.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        billChoices.setVisibility(View.INVISIBLE);
+                        billChoices.setEnabled(false);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
+                // Set the animation on the custom view
+                billChoices.startAnimation(a);
+            }
+            valueAnimator.setDuration(200);
+            valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
+            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    Integer value = (Integer) animation.getAnimatedValue();
+                    billChoices.getLayoutParams().height = value.intValue();
+                    billChoices.requestLayout();
+                }
+            });
+
+
+            valueAnimator.start();
+        }
+    }
 
 }

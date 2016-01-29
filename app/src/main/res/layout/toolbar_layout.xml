@@ -23,16 +23,18 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/_5sdp"
             android:clickable="true"
+            android:onClick="toolBarItemClick"
             android:src="@drawable/paypal" />
 
         <ImageView
-            android:id="@+id/ivToolBarWish"
+            android:id="@+id/ivToolBarFacebook"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_toLeftOf="@id/ivToolbarPaypal"
-            android:src="@drawable/google_plus" />
-
+            android:clickable="true"
+            android:onClick="toolBarItemClick"
+            android:src="@drawable/facebook" />
 
     </RelativeLayout>
 </android.support.v7.widget.Toolbar>

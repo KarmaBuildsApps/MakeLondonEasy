@@ -8,6 +8,11 @@ public class JPlace {
     private String name;
     private String icsCode;
 
+    public JPlace(String name, String icsCode) {
+        this.name = name;
+        this.icsCode = icsCode;
+    }
+
     public String getName() {
         return name;
     }

@@ -39,10 +39,10 @@ public class LocalDatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_SEARCH_HISTORY_TABLE = "CREATE TABLE " + SEARCH_HISTORY_TABLE + " (" + sID + " INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT, " +
-                sFrom + " VARCHAR(25) NOT NULL, " + sTo + " VARCHAR(25) NOTNULL, " + sNationSearch + " INT NULL, " + sModes + " CHAR(10) NULL, " +
-                sJourneyPref + " VARCHAR(10) NULL), " + sTimeIs + " VARCHAR(10) NULL)" + sToPlaceCode + " VARCHAR(10) NOT NULL)" +
-                sFromPlaceCode + " VARCHAR(10) NOT NULL)" + sDate + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";
+        String CREATE_SEARCH_HISTORY_TABLE = "CREATE TABLE " + "SEARCH_HISTORY_TABLE" + " (" + "sID" + " INTEGER PRIMARY KEY, " +
+                "sFrom" + " TEXT NOT NULL, " + " sTo" + " TEXT, " + "sNationSearch" + " INTEGER, " + "sModes" + " TEXT, " +
+                "sJourneyPref" + " TEXT, " + "sTimeIs" + " TEXT " + "sToPlaceCode" + " TEXT " +
+                "sFromPlaceCode" + " TEXT" + "sDate" + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";
         db.execSQL(CREATE_SEARCH_HISTORY_TABLE);
     }
 
@@ -83,6 +83,18 @@ public class LocalDatabaseHandler extends SQLiteOpenHelper {
         return journeysOfDate;
     }
 
+    public boolean removeHistory(int sJourneyId) {
+        boolean isRemoved = false;
+        Cursor cursor = getWritableDB().rawQuery("SELECT * from " + SEARCH_HISTORY_TABLE +
+                "WHERE " + sID + " ? ", new String[]{"" + sJourneyId});
+        if (cursor.moveToFirst() == true) {
+            isRemoved = true;
+            getWritableDB().rawQuery("DELETE from " + SEARCH_HISTORY_TABLE + " WHERE " + sID + " ?", new String[]{"" + sJourneyPref});
+        }
+        getWritableDB().close();
+        return isRemoved;
+    }
+
     public List<DJourney> getAllHistory() {
         List<DJourney> jHistory = new ArrayList<>();
         Cursor cursor = getReadableDB().query(SEARCH_HISTORY_TABLE, null, null, null, null, null, null);
@@ -92,8 +104,8 @@ public class LocalDatabaseHandler extends SQLiteOpenHelper {
 
     private List<DJourney> getCursorJItems(Cursor cursor) {
         List<DJourney> journeys = new ArrayList<>();
-        JPlace to = new JPlace();
-        JPlace from = new JPlace();
+        JPlace to = new JPlace("", "");
+        JPlace from = new JPlace("", "");
         DJourney journey = new DJourney(from, to);
         if (cursor.moveToFirst())
             do {

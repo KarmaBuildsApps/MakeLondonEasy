@@ -32,10 +32,10 @@ import myapp.tae.ac.uk.makelondoneasy.R;
 public class PMethodPayPal extends AppCompatActivity implements View.OnClickListener {
     private Button btnPay;
     private EditText etDonationAmount;
-    private int donationAmount = 0;
+    private double donationAmount = 0;
     //set the environment for production/sandbox/no netowrk
     private static final String CONFIG_ENVIRONMENT = PayPalConfiguration.ENVIRONMENT_SANDBOX;
-    private static final String CONFIG_CLIENT_ID = "AXpG_42wZ5no9XUiUDj8YqGxw3g0CJh-hUsJH2VvmaZMGb5zQLP8lMQpUIB2Fq6IzZeJrNSrL961ZAXz";
+    private static final String CONFIG_CLIENT_ID = "Ade17MF945swtrOqPQx-Y7rjjT7rA2R5bMiYR-Ehdh7MCmZMWyb7-RhOUzCDBIartohE-ROPdGExKpss";
     private final int REQUEST_PAYPAL_PAYMENT = 1;
     private static PayPalConfiguration config = new PayPalConfiguration()
             .environment(CONFIG_ENVIRONMENT)
@@ -70,7 +70,7 @@ public class PMethodPayPal extends AppCompatActivity implements View.OnClickList
         switch (v.getId()) {
             case R.id.btPayPalDonate:
                 if (!etDonationAmount.getText().equals("")) {
-                    donationAmount = Integer.parseInt(etDonationAmount.getText().toString());
+                    donationAmount = Double.parseDouble(etDonationAmount.getText().toString());
                     if (donationAmount <= 0) {
                         Toast.makeText(this, "Please enter a valid amount", Toast.LENGTH_LONG).show();
                         break;

@@ -23,6 +23,7 @@ public class Constants {
     public final static String TO_ICSCODE = "fromIcsCode";
     public final static String JOURNEY_INFO_BUNDLE = "jSearchBundleName";
     public static final String JOURNEY_OPTION_DETAIL = "journeyOptionDetail";
+    public static final String SHARED_PREFERENCE_NAME = "myapp.tae.ac.uk.tflSharedPref";
 //https://api.tfl.gov.uk/Journey/JourneyResults/1000248/to/1000068?nationalSearch=False&timeIs=Departing&journeyPreference=LeastTime&app_id=69e7863b&app_key=6e4d8b6e246808c7de67ec5f950c8c34
 
     /**

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Make London Easy</string>
+    <string name="facebook_app_id">473718326155184</string>
+
     <string name="jsearchMap">Planificador de Viaje</string>
     <string name="jsearchResults">Buscar Viaje</string>
     <string name="payPal">PayPal Method</string>

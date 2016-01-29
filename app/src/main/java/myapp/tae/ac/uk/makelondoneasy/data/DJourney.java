@@ -14,6 +14,7 @@ public class DJourney {
     private String mode;
     private String journeyPref;
     private String timeIs;
+    private String date;
 
     public DJourney(JPlace from, JPlace to) {
         this.toPlace = to;
@@ -21,6 +22,15 @@ public class DJourney {
         mode = journeyPref = timeIs = "";//default values
         id = -1;
         nationSearch = 0;
+        date = "";
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDate() {
+        return date;
     }
 
     public void setFromPlace(JPlace fromPlace) {

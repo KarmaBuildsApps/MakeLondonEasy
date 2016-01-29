@@ -6,6 +6,7 @@ import android.widget.EditText;
 
 import java.util.List;
 
+import myapp.tae.ac.uk.makelondoneasy.constants.Constants;
 import myapp.tae.ac.uk.makelondoneasy.data.DJourney;
 import myapp.tae.ac.uk.makelondoneasy.data.LocalDatabaseHandler;
 
@@ -17,11 +18,10 @@ import myapp.tae.ac.uk.makelondoneasy.data.LocalDatabaseHandler;
 public class DataManager {
     private LocalDatabaseHandler databaseHandler;
     private SharedPreferences sharedPreferences;
-    private static final String sharedPrefName = "myapp.tae.ac.uk.tflSharedPref";
 
     public DataManager(Context context) {
         databaseHandler = new LocalDatabaseHandler(context);
-        sharedPreferences = context.getSharedPreferences(sharedPrefName, Context.MODE_PRIVATE);
+//        sharedPreferences = context.getSharedPreferences(Constants.SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
     }
 
     public boolean add(DJourney journey) {
@@ -36,14 +36,19 @@ public class DataManager {
         return databaseHandler.getAllHistory();
     }
 
-    public void saveString(String name, String value) {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(name, value);
-        editor.commit();
+    public boolean rmJourney(int id) {
+        return databaseHandler.removeHistory(id);
     }
 
-    public String getStringData(String name) {
-        String error = "error";
-        return sharedPreferences.getString(name, error);
-    }
+//    public void saveString(String name, String value) {
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
+//        editor.putString(name, value);
+//        editor.commit();
+//    }
+//
+//    public String getStringData(String name) {
+//        String error = "error";
+//        return sharedPreferences.getString(name, error);
+//    }
+
 }

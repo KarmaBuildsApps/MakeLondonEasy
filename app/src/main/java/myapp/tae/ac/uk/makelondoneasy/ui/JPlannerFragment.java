@@ -34,8 +34,14 @@ import myapp.tae.ac.uk.makelondoneasy.R;
 import myapp.tae.ac.uk.makelondoneasy.adapters.AdapterAutoComplete;
 import myapp.tae.ac.uk.makelondoneasy.adapters.AdapterJSearchResult;
 import myapp.tae.ac.uk.makelondoneasy.adapters.RestroInterface;
+import myapp.tae.ac.uk.makelondoneasy.api.DataManager;
 import myapp.tae.ac.uk.makelondoneasy.api.TFLInterface;
 import myapp.tae.ac.uk.makelondoneasy.constants.Constants;
+import myapp.tae.ac.uk.makelondoneasy.constants.JNationS;
+import myapp.tae.ac.uk.makelondoneasy.constants.JTimeIs;
+import myapp.tae.ac.uk.makelondoneasy.constants.JourneyPref;
+import myapp.tae.ac.uk.makelondoneasy.data.DJourney;
+import myapp.tae.ac.uk.makelondoneasy.data.JPlace;
 import myapp.tae.ac.uk.makelondoneasy.model.searchP.Match;
 import myapp.tae.ac.uk.makelondoneasy.model.searchP.SearchPlace;
 import myapp.tae.ac.uk.makelondoneasy.model.tofromJourney.ToFrom;
@@ -61,6 +67,7 @@ public class JPlannerFragment extends Fragment implements View.OnClickListener, 
     private Spinner spJPref;
     private ArrayAdapter<String> spinnerAdapter;
     private List<String> jPrefOptions = new ArrayList<>();
+    private DataManager dataManager = new DataManager(getActivity());
 
 
     private ProgressDialog progressDialog;
@@ -70,7 +77,9 @@ public class JPlannerFragment extends Fragment implements View.OnClickListener, 
     private String query = "1000238/to/1000226";
     private AdapterAutoComplete autoCompleteAdapter;
     private String toPlaceIcsCode = "";
+    private String toPlaceName = "";
     private String fromPlaceIcsCode = "";
+    private String fromPlaceName = "";
 
     public JPlannerFragment() {
 
@@ -97,7 +106,6 @@ public class JPlannerFragment extends Fragment implements View.OnClickListener, 
     }
 
 
-
     private void startViews(View view) {
         btSearch = (Button) view.findViewById(R.id.btSearchJourney);
         autoCompleteAdapter = new AdapterAutoComplete(getActivity());
@@ -113,6 +121,7 @@ public class JPlannerFragment extends Fragment implements View.OnClickListener, 
                 Match match = matches.get(position);
                 if (match != null) {
                     fromPlaceIcsCode = match.getIcsId();
+                    fromPlaceName = match.getName();
                     Log.i(TAG, "onItemClick: fromicsid" + fromPlaceIcsCode);
                     Log.i(TAG, "onItemClick: Name" + match.getName());
                 }
@@ -132,6 +141,7 @@ public class JPlannerFragment extends Fragment implements View.OnClickListener, 
                 Match match = matches.get(position);
                 if (match != null) {
                     toPlaceIcsCode = match.getIcsId();
+                    toPlaceName = match.getName();
                     Log.i(TAG, "onItemClick: toicscode " + toPlaceIcsCode);
                     Log.i(TAG, "onItemClick: Name " + match.getName());
                 }
@@ -198,6 +208,7 @@ public class JPlannerFragment extends Fragment implements View.OnClickListener, 
                 if (fromPlaceIcsCode.equals("") | toPlaceIcsCode.equals("")) {
                     SuperToast.create(getActivity(), "Journey Search is invalid", Toast.LENGTH_LONG).show();
                 } else {
+//                    saveJourneyInfo();
                     Intent i = new Intent(getActivity(), JSearchResults.class);
                     Bundle bundle = new Bundle();
                     bundle.putString(Constants.FROM_ICSCODE, fromPlaceIcsCode);
@@ -217,6 +228,17 @@ public class JPlannerFragment extends Fragment implements View.OnClickListener, 
             default:
         }
     }
+
+//    private void saveJourneyInfo() {
+//        DJourney jSearchItem;
+//        JPlace to = new JPlace(toPlaceName, toPlaceIcsCode);
+//        JPlace from = new JPlace(fromPlaceName, fromPlaceIcsCode);
+//        jSearchItem = new DJourney(from, to);
+//        jSearchItem.setJourneyPref(JNationS.FALSE.getValue());
+//        jSearchItem.setJourneyPref(JourneyPref.LTIME.getValue());
+//        jSearchItem.setTimeIs(JTimeIs.DEPART.getValue());
+//        dataManager.add(jSearchItem);
+//    }
 
 
     @Override
